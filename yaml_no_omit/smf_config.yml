@@ -1,0 +1,80 @@
+# Configuración principal del SMF (Session Management Function)
+info:
+  version: 1.0.0
+  description: SMF initial configuration
+mongodb:                                   # Conexión a MongoDB
+  name: "smf_db"                           # Nombre de la base de datos SMF
+  url: "mongodb://smf_user:smf_pass@mongo:27017/smf_db"  # URL de conexión
+pfcp:                                      # Configuración PFCP (Packet Forwarding Control Protocol)
+  addr: "127.0.0.1"                        # Dirección IP del endpoint PFCP (opcional)
+  port: 8805                               # Puerto PFCP (opcional)
+sbi:                                       # Service-Based Interface (SBI)
+  scheme: "https"                          # Protocolo para SBI (http o https)
+  tls:                                     # Configuración TLS para cifrado de la interfaz (opcional)
+    pem: "/etc/smf/tls/server.pem"         # Ruta al certificado PEM
+    key: "/etc/smf/tls/server.key"         # Ruta a la clave privada TLS
+  registerIPv4: "10.0.4.5"                 # IP registrada en NRF (opcional)
+  bindingIPv4: "0.0.0.0"                   # IP local donde escucha el servidor (opcional)
+  port: 8443                               # Puerto de escucha SBI (opcional)
+nrfUri: "https://nrf.operator.example.com" # URI del Network Repository Function (NRF) (opcional)
+webuiUri: "https://smf-webui.example.com"  # URI de la interfaz web de administración (requerido)
+smfName: "SMF-01"                          # Nombre lógico único del SMF (opcional)
+smfDBName: "smf_db"                        # Nombre de la base de datos SMF en MongoDB (opcional)
+
+snssaiInfos:                              # Información SNSSAI y DNN para slices soportados
+  - sNssai:
+      sst: 1                              # Slice/Service Type (SST)
+      sd: "010203"                        # Slice differentiator (SD)
+    plmnId:
+      mcc: "001"                          # Código de país móvil
+      mnc: "01"                           # Código de red móvil
+    dnnInfos:                            # Lista de DNNs asociadas a este SNSSAI
+      - dnn: "internet"                  # Data Network Name
+        dns:
+          ipv4: "8.8.8.8"                # Servidor DNS IPv4
+          ipv6: "2001:4860:4860::8888"   # Servidor DNS IPv6
+        ueSubnet: "10.1.0.0/16"          # Rango de subred para UE
+        mtu: 1500                        # Unidad máxima de transmisión
+  - sNssai:
+      sst: 2
+      sd: "112233"
+    plmnId:
+      mcc: "001"
+      mnc: "02"
+    dnnInfos:
+      - dnn: "ims"
+        dns:
+          ipv4: "8.8.4.4"
+        ueSubnet: "10.2.0.0/16"
+        mtu: 1400
+
+staticIpInfo:                             # Asignaciones estáticas de IP por IMSI
+  - imsiIpInfo:
+      "001010000000001": "10.10.1.100"    # IMSI -> IP
+      "001010000000002": "10.10.1.101"
+    dnn: "enterprise"                    # DNN al que aplica esta asignación
+
+serviceNameList:                          # Servicios SBI expuestos por este SMF (opcional)
+  - "Nsmf_PDUSession"
+  - "Nsmf_EventExposure"
+
+enterpriseList:                           # Listado de empresas y sus identificadores (opcional)
+  "EnterpriseA": "ENT-A"
+  "EnterpriseB": "ENT-B"
+
+kafkaInfo:                                # Configuración de Kafka para eventos y métricas (opcional)
+  enableKafka: true                      # Activar Kafka
+  brokerUri: "kafka1.example.com"         # URI del broker Kafka
+  topicName: "smf-events"                # Topic para publicar eventos SMF
+  brokerPort: 9092                       # Puerto del broker Kafka
+
+userplane_information:                    # Topología del plano de usuario
+  up_nodes: {}                            # Mapa de nodos UP (identificador -> configuración)
+  links: []                               # Lista de enlaces entre nodos UP
+
+nrfCacheEvictionInterval: 300             # Intervalo en segundos para expulsión de la caché NRF
+debugProfilePort: 6060                    # Puerto para perfilado/debug (opcional)
+enableNrfCaching: true                    # Habilitar caché de NRF
+enableDBStore: true                       # Permitir almacenamiento en BD (opcional)
+enableUPFAdapter: false                   # Habilitar adaptador UPF (opcional)
+ulcl: false                               # Habilitar Local Breakout (ULCL) (opcional)

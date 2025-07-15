@@ -1,0 +1,118 @@
+gnbs:
+  gnb01:
+    n2IpAddr: "192.168.100.10"
+    n3IpAddr: "192.168.100.20"
+    name: "gNodeB-1"
+    globalRanId:
+      plmnId:
+        mcc: "208"
+        mnc: "93"
+      n3IwfId: "n3iwf-001"
+      gNbId:
+        bitLength: 32
+        gNBValue: "0xabcdef01"
+      ngeNbId: "ngenb-001"
+    defaultAmf:
+      ip: "10.10.0.1"
+      port: 38412
+    supportedTaList:
+      - tac: 1
+        broadcastPlmnList:
+          - plmnId:
+              mcc: "208"
+              mnc: "93"
+            taiSliceSupportList:
+              - sst: 1
+                sd: "010203"
+      - tac: 2
+        broadcastPlmnList: []
+    n2Port: 38412
+    n3Port: 2152
+
+customProfiles:
+  profile_custom:
+    profileType: "custom"
+    profileName: "CustomProfile01"
+    gnbName: "gNodeB-1"
+    startImsi: "208930000000001"
+    defaultAs: "defaultAMF"
+    key: "00112233445566778899AABBCCDDEEFF"
+    opc: "11223344556677889900AABBCCDDEEFF"
+    sequenceNumber: "000000000001"
+    dnn: "internet"
+    startiteration: "0"
+    plmnId:
+      mcc: "208"
+      mnc: "93"
+    sNssai:
+      sst: 1
+      sd: "112233"
+    iterations:
+      - name: "Init"
+        "1": "AttachRequest"
+        "2": "AttachAccept"
+        "3": "SecurityModeCommand"
+        "4": ""
+        "5": ""
+        "6": ""
+        "7": ""
+        next: "NextStep"
+        repeat: 1
+    ueCount: 10
+    dataPktCount: 5
+    dataPktInterval: 1000
+    perUserTimeout: 30000
+    enable: true
+    execInParallel: false
+    stepTrigger: false
+    retransMsg: true
+
+profiles:
+  - profileType: "standard"
+    profileName: "BasicProfile"
+    gnbName: "gNodeB-1"
+    startImsi: "208930000000002"
+    defaultAs: "amf-001"
+    key: "FFEEDDCCBBAA99887766554433221100"
+    opc: "AABBCCDDEEFF00112233445566778899"
+    sequenceNumber: "000000000002"
+    dnn: "ims"
+    startiteration: "0"
+    plmnId:
+      mcc: "208"
+      mnc: "93"
+    sNssai:
+      sst: 1
+      sd: "010101"
+    iterations:
+      - name: "Step1"
+        "1": "RegistrationRequest"
+        "2": "AuthenticationRequest"
+        "3": "SecurityModeCommand"
+        "4": "RegistrationAccept"
+        "5": ""
+        "6": ""
+        "7": ""
+        next: "NextStep"
+        repeat: 1
+    ueCount: 20
+    dataPktCount: 10
+    dataPktInterval: 500
+    perUserTimeout: 15000
+    enable: true
+    execInParallel: true
+    stepTrigger: false
+    retransMsg: false
+
+httpServer:
+  ipAddr: "0.0.0.0"
+  port: "8080"
+  enable: true
+
+goProfile:
+  enable: true
+  port: 9090
+
+singleInterface: true
+execInParallel: false
+runConfigProfilesAtStart: true
