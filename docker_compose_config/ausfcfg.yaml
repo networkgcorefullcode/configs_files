@@ -8,7 +8,7 @@ configuration:
     bindingIPv4: 172.28.0.3
     port: 29509
     registerIPv4: 172.28.0.3
-    scheme: https
+    scheme: http
     tls: # the local path of TLS key
       key: /support/TLS/ausf.pem # AUSF TLS Certificate
       pem: /support/TLS/ausf.pem # AUSF TLS Private key

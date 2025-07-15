@@ -3,166 +3,167 @@ info:
   version: 1.0.0
   description: NSSF initial configuration
 
-nssfName: "NSSF-01"                      # Nombre lógico único del NSSF (opcional)
+configuration:
+  nssfName: "NSSF-01"                      # Nombre lógico único del NSSF (opcional)
 
-sbi:                                     # Service-Based Interface (SBI) - configuración del API
-  scheme: "https"                        # Protocolo utilizado (http o https)
-  tls:                                   # Opcional: configuración TLS para cifrado SBI
-    pem: "/etc/nssf/tls/server.pem"      # Ruta al certificado PEM
-    key: "/etc/nssf/tls/server.key"      # Ruta a la clave privada TLS
-  registerIPv4: "10.0.2.5"               # IP registrada en el NRF (opcional)
-  bindingIPv4: "0.0.0.0"                 # IP local donde escucha el servidor (opcional)
-  port: 7443                             # Puerto de escucha SBI (requerido)
+  sbi:                                     # Service-Based Interface (SBI) - configuración del API
+    scheme: "https"                        # Protocolo utilizado (http o https)
+    tls:                                   # Opcional: configuración TLS para cifrado SBI
+      pem: "/etc/nssf/tls/server.pem"      # Ruta al certificado PEM
+      key: "/etc/nssf/tls/server.key"      # Ruta a la clave privada TLS
+    registerIPv4: "10.0.2.5"               # IP registrada en el NRF (opcional)
+    bindingIPv4: "0.0.0.0"                 # IP local donde escucha el servidor (opcional)
+    port: 7443                             # Puerto de escucha SBI (requerido)
 
-serviceNameList:                         # Lista de servicios SBI que expone este NSSF
-  - "Nnssf_NSSelection"                  # Servicio de selección de slice
-  - "Nnssf_NSSAIAvailability"            # Servicio de disponibilidad de NSSAI
+  serviceNameList:                         # Lista de servicios SBI que expone este NSSF
+    - "Nnssf_NSSelection"                  # Servicio de selección de slice
+    - "Nnssf_NSSAIAvailability"            # Servicio de disponibilidad de NSSAI
 
-nrfUri: "https://nrf.operator.example.com"   # URI del Network Repository Function (NRF) (requerido)
+  nrfUri: "https://nrf.operator.example.com"   # URI del Network Repository Function (NRF) (requerido)
 
-webuiUri: "https://nssf-webui.example.com"   # URI de la interfaz web de administración (requerido)
+  webuiUri: "https://nssf-webui.example.com"   # URI de la interfaz web de administración (requerido)
 
-supportedPlmnList:                       # PLMNs soportados por este NSSF (opcional)
-  - plmnId:
-      mcc: "001"                         # Código de país móvil
-      mnc: "01"                          # Código de red móvil
-  - plmnId:
-      mcc: "001"
-      mnc: "02"
-
-supportedNssaiInPlmnList:               # Lista de NSSAI soportados por PLMN (requerido)
-  - plmnId:
-      mcc: "001"
-      mnc: "01"
-    supportedSnssaiList:                 # NSSAI soportados en este PLMN
-      - sst: 1                          # Slice/Service Type (SST)
-        sd: "010203"                    # Slice differentiator (SD)
-      - sst: 2
-        sd: "040506"
-  - plmnId:
-      mcc: "001"
-      mnc: "02"
-    supportedSnssaiList:
-      - sst: 1
-        sd: ""                          # SD puede quedar vacío si no aplica
-
-nsiList:                                 # Configuración de NSI (Network Slice Instance) por S-NSSAI
-  - snssai:
-      sst: 1
-      sd: "010203"
-    nsiInformationList:                  # Lista de instancias disponibles
-      - nrfId: "NRF-01"                  # Identificador de NRF que gestiona esta NSI
-        nsiId: "NSI-100"                 # Identificador único de NSI
-      - nrfId: "NRF-02"
-        # nsiId omitido intencionalmente
-      - nrfId: "NRF-03"
-        nsiId: "NSI-103"
-
-amfSetList:                              # Conjunto de AMFs agrupados
-  - amfSetId: "AMFSET-1"                 # Identificador de conjunto AMF
-    amfList:                            # Lista de AMFs en este conjunto
-      - "AMF-1"
-      - "AMF-2"
-    nrfAmfSet: "NRF-AMFSET-1"           # Identificador de conjunto en NRF (opcional)
-    supportedNssaiAvailabilityData:    # Disponibilidad de NSSAI por TAI
-      - tai:
-          plmnId:
-            mcc: "001"
-            mnc: "01"
-          tac: "0001"                   # Tracking Area Code
-        supportedSnssaiList:
-          - sst: 1
-            sd: "010203"
-          - sst: 2
-            sd: "040506"
-  - amfSetId: "AMFSET-2"
-    amfList: []                         # Lista vacía si no hay AMFs específicos
-    supportedNssaiAvailabilityData:
-      - tai:
-          plmnId:
-            mcc: "001"
-            mnc: "02"
-          tac: "0002"
-        supportedSnssaiList:
-          - sst: 1
-            sd: "010203"
-
-amfList:                                 # Configuración individual de AMFs
-  - nfId: "AMF-1"                        # Identificador de NF (AMF)
-    supportedNssaiAvailabilityData:
-      - tai:
-          plmnId:
-            mcc: "001"
-            mnc: "01"
-          tac: "0001"
-        supportedSnssaiList:
-          - sst: 1
-            sd: "010203"
-  - nfId: "AMF-2"
-    supportedNssaiAvailabilityData:
-      - tai:
-          plmnId:
-            mcc: "001"
-            mnc: "02"
-          tac: "0002"
-        supportedSnssaiList:
-          - sst: 2
-            sd: "040506"
-
-taList:                                  # Configuración de áreas de seguimiento (TA)
-  - tai:
-      plmnId:
-        mcc: "001"
-        mnc: "01"
-      tac: "0001"
-    accessType: "3GPP_ACCESS"           # Tipo de acceso (p.ej. 3GPP_ACCESS o NON_3GPP_ACCESS)
-    supportedSnssaiList:
-      - sst: 1
-        sd: "010203"
-    restrictedSnssaiList:               # NSSAI restringidos en esta TA (opcional)
-      - homePlmnId:
-          mcc: "001"
-          mnc: "01"
-        sNssaiList:
-          - sst: 2
-            sd: "040506"
-  - tai:
-      plmnId:
+  supportedPlmnList:                       # PLMNs soportados por este NSSF (opcional)
+    - plmnId:
+        mcc: "001"                         # Código de país móvil
+        mnc: "01"                          # Código de red móvil
+    - plmnId:
         mcc: "001"
         mnc: "02"
-      tac: "0002"
-    accessType: "NON_3GPP_ACCESS"
-    supportedSnssaiList:
-      - sst: 1
-        sd: ""
-    # restrictedSnssaiList omitido: no hay restricciones
 
-mappingListFromPlmn:                     # Mapeo de NSSAI entre PLMN de origen y doméstico
-  - operatorName: "OperatorA"            # Nombre comercial del operador (opcional)
-    homePlmnId:
-      mcc: "001"
-      mnc: "01"
-    mappingOfSnssai:
-      - servingSnssai:
-          sst: 1
-          sd: "010203"
-        homeSnssai:
-          sst: 1
-          sd: "010203"
-      - servingSnssai:
-          sst: 2
+  supportedNssaiInPlmnList:               # Lista de NSSAI soportados por PLMN (requerido)
+    - plmnId:
+        mcc: "001"
+        mnc: "01"
+      supportedSnssaiList:                 # NSSAI soportados en este PLMN
+        - sst: 1                          # Slice/Service Type (SST)
+          sd: "010203"                    # Slice differentiator (SD)
+        - sst: 2
           sd: "040506"
-        homeSnssai:
-          sst: 2
-          sd: "040506"
-  - operatorName: "OperatorB"
-    homePlmnId:
-      mcc: "001"
-      mnc: "02"
-    mappingOfSnssai:
-      - servingSnssai:
-          sst: 1
+    - plmnId:
+        mcc: "001"
+        mnc: "02"
+      supportedSnssaiList:
+        - sst: 1
+          sd: ""                          # SD puede quedar vacío si no aplica
+
+  nsiList:                                 # Configuración de NSI (Network Slice Instance) por S-NSSAI
+    - snssai:
+        sst: 1
+        sd: "010203"
+      nsiInformationList:                  # Lista de instancias disponibles
+        - nrfId: "NRF-01"                  # Identificador de NRF que gestiona esta NSI
+          nsiId: "NSI-100"                 # Identificador único de NSI
+        - nrfId: "NRF-02"
+          # nsiId omitido intencionalmente
+        - nrfId: "NRF-03"
+          nsiId: "NSI-103"
+
+  amfSetList:                              # Conjunto de AMFs agrupados
+    - amfSetId: "AMFSET-1"                 # Identificador de conjunto AMF
+      amfList:                            # Lista de AMFs en este conjunto
+        - "AMF-1"
+        - "AMF-2"
+      nrfAmfSet: "NRF-AMFSET-1"           # Identificador de conjunto en NRF (opcional)
+      supportedNssaiAvailabilityData:    # Disponibilidad de NSSAI por TAI
+        - tai:
+            plmnId:
+              mcc: "001"
+              mnc: "01"
+            tac: "0001"                   # Tracking Area Code
+          supportedSnssaiList:
+            - sst: 1
+              sd: "010203"
+            - sst: 2
+              sd: "040506"
+    - amfSetId: "AMFSET-2"
+      amfList: []                         # Lista vacía si no hay AMFs específicos
+      supportedNssaiAvailabilityData:
+        - tai:
+            plmnId:
+              mcc: "001"
+              mnc: "02"
+            tac: "0002"
+          supportedSnssaiList:
+            - sst: 1
+              sd: "010203"
+
+  amfList:                                 # Configuración individual de AMFs
+    - nfId: "AMF-1"                        # Identificador de NF (AMF)
+      supportedNssaiAvailabilityData:
+        - tai:
+            plmnId:
+              mcc: "001"
+              mnc: "01"
+            tac: "0001"
+          supportedSnssaiList:
+            - sst: 1
+              sd: "010203"
+    - nfId: "AMF-2"
+      supportedNssaiAvailabilityData:
+        - tai:
+            plmnId:
+              mcc: "001"
+              mnc: "02"
+            tac: "0002"
+          supportedSnssaiList:
+            - sst: 2
+              sd: "040506"
+
+  taList:                                  # Configuración de áreas de seguimiento (TA)
+    - tai:
+        plmnId:
+          mcc: "001"
+          mnc: "01"
+        tac: "0001"
+      accessType: "3GPP_ACCESS"           # Tipo de acceso (p.ej. 3GPP_ACCESS o NON_3GPP_ACCESS)
+      supportedSnssaiList:
+        - sst: 1
           sd: "010203"
-        homeSnssai:
-          sst: 1
-          sd: "010203"
+      restrictedSnssaiList:               # NSSAI restringidos en esta TA (opcional)
+        - homePlmnId:
+            mcc: "001"
+            mnc: "01"
+          sNssaiList:
+            - sst: 2
+              sd: "040506"
+    - tai:
+        plmnId:
+          mcc: "001"
+          mnc: "02"
+        tac: "0002"
+      accessType: "NON_3GPP_ACCESS"
+      supportedSnssaiList:
+        - sst: 1
+          sd: ""
+      # restrictedSnssaiList omitido: no hay restricciones
+
+  mappingListFromPlmn:                     # Mapeo de NSSAI entre PLMN de origen y doméstico
+    - operatorName: "OperatorA"            # Nombre comercial del operador (opcional)
+      homePlmnId:
+        mcc: "001"
+        mnc: "01"
+      mappingOfSnssai:
+        - servingSnssai:
+            sst: 1
+            sd: "010203"
+          homeSnssai:
+            sst: 1
+            sd: "010203"
+        - servingSnssai:
+            sst: 2
+            sd: "040506"
+          homeSnssai:
+            sst: 2
+            sd: "040506"
+    - operatorName: "OperatorB"
+      homePlmnId:
+        mcc: "001"
+        mnc: "02"
+      mappingOfSnssai:
+        - servingSnssai:
+            sst: 1
+            sd: "010203"
+          homeSnssai:
+            sst: 1
+            sd: "010203"

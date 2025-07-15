@@ -2,25 +2,26 @@
 info:
   version: 1.0.0
   description: AUSF initial configuration
-sbi:                              # Service-Based Interface (SBI)
-  scheme: "https"                 # Protocolo utilizado (http o https)
-  tls:                            # Configuración TLS para cifrado de la interfaz
-    pem: "/etc/amf/tls/server.pem"  # Ruta al archivo PEM del certificado (opcional)
-    key: "/etc/amf/tls/server.key"  # Ruta a la clave privada TLS (opcional)
-  registerIPv4: "10.0.0.5"        # IP que se registra en el NRF (opcional)
-  bindingIPv4: "0.0.0.0"          # IP local donde escucha el servidor (opcional)
-  port: 29502                     # Puerto de escucha SBI (opcional)
+configuration:
+  sbi:                              # Service-Based Interface (SBI)
+    scheme: "https"                 # Protocolo utilizado (http o https)
+    tls:                            # Configuración TLS para cifrado de la interfaz
+      pem: "/etc/amf/tls/server.pem"  # Ruta al archivo PEM del certificado (opcional)
+      key: "/etc/amf/tls/server.key"  # Ruta a la clave privada TLS (opcional)
+    registerIPv4: "10.0.0.5"        # IP que se registra en el NRF (opcional)
+    bindingIPv4: "0.0.0.0"          # IP local donde escucha el servidor (opcional)
+    port: 29502                     # Puerto de escucha SBI (opcional)
 
-serviceNameList:                  # Lista de servicios expuestos por SBI (opcional)
-  - "Namf_CommunicationService"   # Servicio de comunicación del AMF
-  - "Namf_EventExposureService"   # Servicio de exposición de eventos
+  serviceNameList:                  # Lista de servicios expuestos por SBI (opcional)
+    - "Namf_CommunicationService"   # Servicio de comunicación del AMF
+    - "Namf_EventExposureService"   # Servicio de exposición de eventos
 
-nrfUri: "https://nrf.example.com" # URI del Network Repository Function (NRF) (opcional)
+  nrfUri: "https://nrf.example.com" # URI del Network Repository Function (NRF) (opcional)
 
-webuiUri: "https://amf-webui.example.com"  # URI de la interfaz web de administración (requerido)
+  webuiUri: "https://amf-webui.example.com"  # URI de la interfaz web de administración (requerido)
 
-groupId: "amf-group-01"           # Identificador de grupo para este AMF (opcional)
+  groupId: "amf-group-01"           # Identificador de grupo para este AMF (opcional)
 
-enableNrfCaching: true            # Habilita el almacenamiento en caché de información del NRF
+  enableNrfCaching: true            # Habilita el almacenamiento en caché de información del NRF
 
-nrfCacheEvictionInterval: 300     # Intervalo en segundos para la expulsión de la caché del NRF (opcional)
+  nrfCacheEvictionInterval: 300     # Intervalo en segundos para la expulsión de la caché del NRF (opcional)

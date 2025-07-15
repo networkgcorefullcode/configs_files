@@ -10,6 +10,7 @@ info:
 
 configuration:
   amfName: AMF # the name of this AMF
+  amfDBName: "amf_db"   # Nombre de la base de datos MongoDB para el AMF
   ngapIpList:  # the IP list of N2 interfaces on this AMF
     - 172.28.0.2
   sbi: # Service-based interface information
@@ -20,6 +21,17 @@ configuration:
     tls: # the local path of TLS key
       key: /support/TLS/amf.pem # AMF TLS Certificate
       pem: /support/TLS/amf.pem # AMF TLS Private key
+  
+  mongodb:                              # Configuración de conexión a MongoDB
+    name: "amf_db"                      # Nombre de la base de datos
+    url: "mongodb://172.28.0.30:27017"  # URL de conexión con credenciales y host:puerto
+
+  enableDBStore: true                   # Permitir almacenamiento en BD
+
+  enableNrfCaching: true                # Habilitar caching de NRF
+
+  nrfCacheEvictionInterval: 300         # Intervalo (s) para expulsión de caché NRF
+
   serviceNameList: # the SBI services provided by this AMF, refer to TS 29.518
     - namf-comm # Namf_Communication service
     - namf-evts # Namf_EventExposure service

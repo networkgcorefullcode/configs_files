@@ -2,36 +2,38 @@
 info:
   version: 1.0.0
   description: UDR initial configuration
-sbi:                                # Service-Based Interface (SBI) - configuración del API
-  scheme: "https"                   # Protocolo para conexiones SBI (http o https)
-  tls:                              # Opcional: configuración TLS para cifrado
-    log: "/var/log/service/tls.log" # Ruta al archivo de registro de TLS
-    pem: "/etc/service/tls/cert.pem" # Ruta al certificado PEM
-    key: "/etc/service/tls/key.pem"  # Ruta a la clave privada TLS
-  registerIPv4: "10.0.0.10"         # IP que se registra en el NRF (opcional)
-  bindingIPv4: "0.0.0.0"            # IP local donde escucha el servidor (opcional)
-  port: 8443                        # Puerto de escucha para SBI (requerido)
 
-mongodb:                            # Configuración de MongoDB para almacenamiento de datos
-  name: "service_db"                # Nombre de la base de datos principal (opcional)
-  url: "mongodb://user:pass@mongo:27017/service_db" # URL de conexión con credenciales (opcional)
-  authKeysDbName: "auth_keys_db"    # Nombre de la base de datos para claves de autenticación
-  authUrl: "mongodb://auth_user:auth_pass@mongo:27017/auth_keys_db" # URL conexión para DB de autenticación
+configuration:
+  sbi:                                # Service-Based Interface (SBI) - configuración del API
+    scheme: "https"                   # Protocolo para conexiones SBI (http o https)
+    tls:                              # Opcional: configuración TLS para cifrado
+      log: "/var/log/service/tls.log" # Ruta al archivo de registro de TLS
+      pem: "/etc/service/tls/cert.pem" # Ruta al certificado PEM
+      key: "/etc/service/tls/key.pem"  # Ruta a la clave privada TLS
+    registerIPv4: "10.0.0.10"         # IP que se registra en el NRF (opcional)
+    bindingIPv4: "0.0.0.0"            # IP local donde escucha el servidor (opcional)
+    port: 8443                        # Puerto de escucha para SBI (requerido)
 
-nrfUri: "https://nrf.operator.example.com"   # URI del Network Repository Function (requerido)
+  mongodb:                            # Configuración de MongoDB para almacenamiento de datos
+    name: "service_db"                # Nombre de la base de datos principal (opcional)
+    url: "mongodb://user:pass@mongo:27017/service_db" # URL de conexión con credenciales (opcional)
+    authKeysDbName: "auth_keys_db"    # Nombre de la base de datos para claves de autenticación
+    authUrl: "mongodb://auth_user:auth_pass@mongo:27017/auth_keys_db" # URL conexión para DB de autenticación
 
-webuiUri: "https://service-webui.example.com" # URI de la interfaz web de administración (requerido)
+  nrfUri: "https://nrf.operator.example.com"   # URI del Network Repository Function (requerido)
 
-plmnSupportList:                    # Lista de PLMNs soportados y sus SNSSAIs (opcional)
-  - plmnId:                         # Primer elemento de la lista
-      mcc: "001"                    # Código de país móvil
-      mnc: "01"                     # Código de red móvil
-    snssaiList:                     # Slice/Service Types soportados en este PLMN
-      - sst: 1                      # Tipo de slice (SST)
-        sd: "010203"                # Slice differentiator (SD)
-      - sst: 2
-        sd: "040506"
-  - plmnId:                         # Segundo elemento de la lista
-      mcc: "002"
-      mnc: "02"
-    # snssaiList omitido: este PLMN no soporta slices específicas
+  webuiUri: "https://service-webui.example.com" # URI de la interfaz web de administración (requerido)
+
+  plmnSupportList:                    # Lista de PLMNs soportados y sus SNSSAIs (opcional)
+    - plmnId:                         # Primer elemento de la lista
+        mcc: "001"                    # Código de país móvil
+        mnc: "01"                     # Código de red móvil
+      snssaiList:                     # Slice/Service Types soportados en este PLMN
+        - sst: 1                      # Tipo de slice (SST)
+          sd: "010203"                # Slice differentiator (SD)
+        - sst: 2
+          sd: "040506"
+    - plmnId:                         # Segundo elemento de la lista
+        mcc: "002"
+        mnc: "02"
+      # snssaiList omitido: este PLMN no soporta slices específicas

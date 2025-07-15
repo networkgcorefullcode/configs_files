@@ -2,46 +2,48 @@
 info:
   version: 1.0.0
   description: UDM initial configuration
-udmName: "UDM-01"                    # Nombre lógico único del UDM (opcional)
 
-sbi:                                 # Service-Based Interface (SBI)
-  scheme: "https"                    # Protocolo utilizado (http o https)
-  tls:                               # Configuración TLS para cifrado de la interfaz (opcional)
-    log: "/var/log/udm/tls.log"      # Ruta al archivo de logs TLS
-    pem: "/etc/udm/tls/server.pem"   # Ruta al certificado PEM para TLS (opcional)
-    key: "/etc/udm/tls/server.key"   # Ruta a la clave privada TLS (opcional)
-  registerIPv4: "10.0.1.5"           # IP que se registra en el NRF (opcional)
-  bindingIPv4: "0.0.0.0"             # IP local donde escucha el servidor (opcional)
-  port: 8080                         # Puerto de escucha SBI (opcional)
+configuration:
+  udmName: "UDM-01"                    # Nombre lógico único del UDM (opcional)
 
-serviceList:                         # Lista de servicios SBI expuestos (opcional)
-  - "Nudm_SubscriberDataManagement"  # Servicio de gestión de datos de suscriptor
-  - "Nudm_UEAuthentication"          # Servicio de autenticación de UE
+  sbi:                                 # Service-Based Interface (SBI)
+    scheme: "https"                    # Protocolo utilizado (http o https)
+    tls:                               # Configuración TLS para cifrado de la interfaz (opcional)
+      log: "/var/log/udm/tls.log"      # Ruta al archivo de logs TLS
+      pem: "/etc/udm/tls/server.pem"   # Ruta al certificado PEM para TLS (opcional)
+      key: "/etc/udm/tls/server.key"   # Ruta a la clave privada TLS (opcional)
+    registerIPv4: "10.0.1.5"           # IP que se registra en el NRF (opcional)
+    bindingIPv4: "0.0.0.0"             # IP local donde escucha el servidor (opcional)
+    port: 8080                         # Puerto de escucha SBI (opcional)
 
-nrfUri: "https://nrf.example.com"    # URI del Network Repository Function (NRF) (opcional)
+  serviceList:                         # Lista de servicios SBI expuestos (opcional)
+    - "Nudm_SubscriberDataManagement"  # Servicio de gestión de datos de suscriptor
+    - "Nudm_UEAuthentication"          # Servicio de autenticación de UE
 
-webuiUri: "https://udm-webui.example.com"  # URI de la interfaz web de administración (requerido)
+  nrfUri: "https://nrf.example.com"    # URI del Network Repository Function (NRF) (opcional)
 
-keys:                                # Claves criptográficas para perfiles UDM (opcional)
-  udmProfileAHNPrivateKey: "/etc/udm/keys/ahn_priv.pem"   # Clave privada AHN
-  udmProfileAHNPublicKey: "/etc/udm/keys/ahn_pub.pem"     # Clave pública AHN
-  udmProfileBHNPrivateKey: "/etc/udm/keys/bhn_priv.pem"   # Clave privada BHN
-  udmProfileBHNPublicKey: "/etc/udm/keys/bhn_pub.pem"     # Clave pública BHN
+  webuiUri: "https://udm-webui.example.com"  # URI de la interfaz web de administración (requerido)
 
-plmnSupportList:                     # Lista de PLMN (Public Land Mobile Network) soportados (opcional)
-  - mcc: "001"                       # Código de país móvil
-    mnc: "01"                        # Código de red móvil
-  - mcc: "002"
-    mnc: "02"
+  keys:                                # Claves criptográficas para perfiles UDM (opcional)
+    udmProfileAHNPrivateKey: "/etc/udm/keys/ahn_priv.pem"   # Clave privada AHN
+    udmProfileAHNPublicKey: "/etc/udm/keys/ahn_pub.pem"     # Clave pública AHN
+    udmProfileBHNPrivateKey: "/etc/udm/keys/bhn_priv.pem"   # Clave privada BHN
+    udmProfileBHNPublicKey: "/etc/udm/keys/bhn_pub.pem"     # Clave pública BHN
 
-plmnList:                            # Lista de soportes PLMN envuelta en PlmnSupportItem (opcional)
-  - plmnId:
-      mcc: "001"                     # Código de país móvil
-      mnc: "01"                      # Código de red móvil
-  - plmnId:
-      mcc: "003"
-      mnc: "03"
+  plmnSupportList:                     # Lista de PLMN (Public Land Mobile Network) soportados (opcional)
+    - mcc: "001"                       # Código de país móvil
+      mnc: "01"                        # Código de red móvil
+    - mcc: "002"
+      mnc: "02"
 
-enableNrfCaching: true               # Habilita el almacenamiento en caché de información del NRF
+  plmnList:                            # Lista de soportes PLMN envuelta en PlmnSupportItem (opcional)
+    - plmnId:
+        mcc: "001"                     # Código de país móvil
+        mnc: "01"                      # Código de red móvil
+    - plmnId:
+        mcc: "003"
+        mnc: "03"
 
-nrfCacheEvictionInterval: 600        # Intervalo en segundos para la expulsión de la caché del NRF (opcional)
+  enableNrfCaching: true               # Habilita el almacenamiento en caché de información del NRF
+
+  nrfCacheEvictionInterval: 600        # Intervalo en segundos para la expulsión de la caché del NRF (opcional)

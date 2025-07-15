@@ -3,142 +3,160 @@ info:
   version: 1.0.0
   description: AMF initial configuration
 
-amfName: "AMF-01"                     # Nombre lógico único del AMF
-amfDBName: "amf_db"                   # Nombre de la base de datos MongoDB para el AMF
+configuration:
+  amfName: "AMF-01"                     # Nombre lógico único del AMF
+  amfDBName: "amf_db"                   # Nombre de la base de datos MongoDB para el AMF
 
-mongodb:                              # Configuración de conexión a MongoDB
-  name: "amf_db"                      # Nombre de la base de datos
-  url: "mongodb://user:pass@mongo:27017/amf_db"  # URL de conexión con credenciales y host:puerto
+  mongodb:                              # Configuración de conexión a MongoDB
+    name: "amf_db"                      # Nombre de la base de datos
+    url: "mongodb://user:pass@mongo:27017/amf_db"  # URL de conexión con credenciales y host:puerto
 
-ngapIpList:                           # Lista de IPs para enlace NGAP
-  - "192.168.0.10"
-  - "192.168.0.11"
+  ngapIpList:                           # Lista de IPs para enlace NGAP
+    - "192.168.0.10"
+    - "192.168.0.11"
 
-ngappPort: 38412                      # Puerto UDP/TCP usado por NGAP
+  ngappPort: 38412                      # Puerto UDP/TCP usado por NGAP
 
-sctpGrpcPort: 50051                   # Puerto gRPC para comunicaciones SCTP
+  sctpGrpcPort: 50051                   # Puerto gRPC para comunicaciones SCTP
 
-sbi:                                  # Service-Based Interface (SBI)
-  scheme: "https"                     # Protocolo (http o https)
-  tls:                                # Configuración TLS para SBI
-    pem: "/etc/amf/tls/server.pem"    # Ruta al certificado PEM
-    key: "/etc/amf/tls/server.key"    # Ruta a la clave privada
-  registerIPv4: "10.0.0.5"            # IP registrada en NRF
-  bindingIPv4: "0.0.0.0"              # IP local donde escucha el servidor
-  port: 29502                         # Puerto de escucha SBI
+  sbi:                                  # Service-Based Interface (SBI)
+    scheme: "https"                     # Protocolo (http o https)
+    tls:                                # Configuración TLS para SBI
+      pem: "/etc/amf/tls/server.pem"    # Ruta al certificado PEM
+      key: "/etc/amf/tls/server.key"    # Ruta a la clave privada
+    registerIPv4: "10.0.0.5"            # IP registrada en NRF
+    bindingIPv4: "0.0.0.0"              # IP local donde escucha el servidor
+    port: 29502                         # Puerto de escucha SBI
 
-networkFeatureSupport5GS:             # Habilita y configura características de 5GS
-  enable: true                        # Activar soporte 5GS
-  imsVoPS: 1                          # Soporte IMS Voice over PS (0=disable,1=enable)
-  emc: 1                              # Soporte llamada de emergencia
-  emf: 0                              # Soporte ubicación de emergencia
-  iwkN26: 0                           # Soporte interworking N26
-  mpsi: 0                             # Soporte MPSI
-  emcN3: 0                            # Soporte emergencia N3
-  mcsi: 0                             # Soporte MCSI
+  networkFeatureSupport5GS:             # Habilita y configura características de 5GS
+    enable: true                        # Activar soporte 5GS
+    imsVoPS: 1                          # Soporte IMS Voice over PS (0=disable,1=enable)
+    emc: 1                              # Soporte llamada de emergencia
+    emf: 0                              # Soporte ubicación de emergencia
+    iwkN26: 0                           # Soporte interworking N26
+    mpsi: 0                             # Soporte MPSI
+    emcN3: 0                            # Soporte emergencia N3
+    mcsi: 0                             # Soporte MCSI
 
-serviceNameList:                      # Lista de servicios SBI expuestos
-  - "Namf_CommunicationService"
-  - "Namf_EventExposureService"
+  serviceNameList:                      # Lista de servicios SBI expuestos
+    - "Namf_CommunicationService"
+    - "Namf_EventExposureService"
 
-servedGuamiList:                      # GUAMI servidos por este AMF
-  - plmnId:
-      mcc: "001"                      # Código de país móvil
-      mnc: "01"                       # Código de red móvil
-    amfId: "8000"                     # Identificador de AMF dentro del PLMN
+  servedGuamiList:                      # GUAMI servidos por este AMF
+    - plmnId:
+        mcc: "001"                      # Código de país móvil
+        mnc: "01"                       # Código de red móvil
+      amfId: "8000"                     # Identificador de AMF dentro del PLMN
 
-supportTaiList:                       # Lista de TAI (Tracking Area Identity) soportadas
-  - plmnId:
-      mcc: "001"
-      mnc: "01"
-    tac: "0001"
-
-plmnSupportList:                      # PLMNs y SNSSAIs soportados
-  - plmnId:
-      mcc: "001"
-      mnc: "01"
-    snssaiList:
-      - sst: 1                       # Slice/Service Type
-        sd: "010203"                 # Slice differentiator
-      - sst: 2
-        sd: "112233"
-
-supportDnnList:                       # Lista de DNNs soportadas (Data Network Names)
-  - "internet"
-  - "private-dnn"
-
-nrfUri: "https://nrf.example.com"     # URI del NRF (Network Repository Function)
-
-webuiUri: "https://amf-webui.example.com"  # URI de la interfaz web de gestión
-
-security:                             # Orden de algoritmos de seguridad
-  integrityOrder:
-    - "NIA2"                         # Algoritmo de integridad preferido
-    - "NIA1"
-  cipheringOrder:
-    - "NEA2"                         # Algoritmo de cifrado preferido
-    - "NEA1"
-
-networkName:                          # Nombre de red que se anuncia
-  full: "MiRed5G"                    # Nombre completo
-  short: "Red5G"                     # Nombre corto (opcional)
-
-t3502Value: 2                         # Valor del temporizador T3502 en segundos
-t3512Value: 10                        # Valor del temporizador T3512 en segundos
-non3gppDeregistrationTimerValue: 30   # Temporizador de desregistro no-3GPP (s)
-
-t3513:                                # Configuración del temporizador T3513
-  enable: true                       # Activar
-  expireTime: 20s                    # Duración antes de expiración
-  maxRetryTimes: 3                   # Máximo número de reintentos
-
-t3522:                                # Configuración del temporizador T3522
-  enable: false
-  expireTime: 0s
-  maxRetryTimes: 0
-
-t3550:                                # Configuración del temporizador T3550
-  enable: true
-  expireTime: 15s
-  maxRetryTimes: 5
-
-t3560:                                # Configuración del temporizador T3560
-  enable: true
-  expireTime: 5s
-  maxRetryTimes: 3
-
-t3565:                                # Configuración del temporizador T3565
-  enable: false
-  expireTime: 0s
-  maxRetryTimes: 0
-
-sliceTaiList:                         # Mantenimiento de TAI por Slice
-  sliceA:
+  supportTaiList:                       # Lista de TAI (Tracking Area Identity) soportadas
     - plmnId:
         mcc: "001"
         mnc: "01"
-      tac: "0002"
+      tac: "0001"
+
+  plmnSupportList:                      # PLMNs y SNSSAIs soportados
     - plmnId:
         mcc: "001"
         mnc: "01"
-      tac: "0003"
-  sliceB:
-    - plmnId:
-        mcc: "001"
-        mnc: "01"
-      tac: "0004"
+      snssaiList:
+        - sst: 1                       # Slice/Service Type
+          sd: "010203"                 # Slice differentiator
+        - sst: 2
+          sd: "112233"
 
-enableSctpLb: true                    # Activar balanceo de carga SCTP
+  supportDnnList:                       # Lista de DNNs soportadas (Data Network Names)
+    - "internet"
+    - "private-dnn"
 
-enableDBStore: true                   # Permitir almacenamiento en BD
+  nrfUri: "https://nrf.example.com"     # URI del NRF (Network Repository Function)
 
-enableNrfCaching: true                # Habilitar caching de NRF
+  webuiUri: "https://amf-webui.example.com"  # URI de la interfaz web de gestión
 
-nrfCacheEvictionInterval: 300         # Intervalo (s) para expulsión de caché NRF
+  security:                             # Orden de algoritmos de seguridad
+    integrityOrder:
+      - "NIA2"                         # Algoritmo de integridad preferido
+      - "NIA1"
+    cipheringOrder:
+      - "NEA2"                         # Algoritmo de cifrado preferido
+      - "NEA1"
 
-kafkaInfo:                            # Información de Kafka para eventos y métricas
-  brokerUri: "kafka-headless"
-  brokerPort: 9092 
-  topicName: "sdcore-data-source-amf"                 # Topic donde publica AMF
+  networkName:                          # Nombre de red que se anuncia
+    full: "MiRed5G"                    # Nombre completo
+    short: "Red5G"                     # Nombre corto (opcional)
 
-debugProfilePort: 6060                # Puerto para perfilado/debug
+  t3502Value: 2                         # Valor del temporizador T3502 en segundos
+  t3512Value: 10                        # Valor del temporizador T3512 en segundos
+  non3gppDeregistrationTimerValue: 30   # Temporizador de desregistro no-3GPP (s)
+
+  t3513:                                # Configuración del temporizador T3513
+    enable: true                       # Activar
+    expireTime: 20s                    # Duración antes de expiración
+    maxRetryTimes: 3                   # Máximo número de reintentos
+
+  t3522:                                # Configuración del temporizador T3522
+    enable: false
+    expireTime: 0s
+    maxRetryTimes: 0
+
+  t3550:                                # Configuración del temporizador T3550
+    enable: true
+    expireTime: 15s
+    maxRetryTimes: 5
+
+  t3560:                                # Configuración del temporizador T3560
+    enable: true
+    expireTime: 5s
+    maxRetryTimes: 3
+
+  t3565:                                # Configuración del temporizador T3565
+    enable: false
+    expireTime: 0s
+    maxRetryTimes: 0
+
+  sliceTaiList:                         # Mantenimiento de TAI por Slice
+    sliceA:
+      - plmnId:
+          mcc: "001"
+          mnc: "01"
+        tac: "0002"
+      - plmnId:
+          mcc: "001"
+          mnc: "01"
+        tac: "0003"
+    sliceB:
+      - plmnId:
+          mcc: "001"
+          mnc: "01"
+        tac: "0004"
+
+  enableSctpLb: true                    # Activar balanceo de carga SCTP
+
+  enableDBStore: true                   # Permitir almacenamiento en BD
+
+  enableNrfCaching: true                # Habilitar caching de NRF
+
+  nrfCacheEvictionInterval: 300         # Intervalo (s) para expulsión de caché NRF
+
+  kafkaInfo:                            # Información de Kafka para eventos y métricas
+    brokerUri: "kafka-headless"
+    brokerPort: 9092 
+    topicName: "sdcore-data-source-amf"                 # Topic donde publica AMF
+
+  debugProfilePort: 6060                # Puerto para perfilado/debug
+
+# the kind of log output
+  # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
+  # ReportCaller: enable the caller report or not, value: true or false
+logger:
+  AMF:
+    debugLevel: info
+  NAS:
+    debugLevel: info
+  FSM:
+    debugLevel: info
+  NGAP:
+    debugLevel: info
+  Aper:
+    debugLevel: info
+  OpenApi:
+    debugLevel: info

@@ -3,58 +3,59 @@ info:
   version: 1.0.0
   description: PCF initial configuration
 
-pcfName: "PCF-01"                      # Nombre lógico único del PCF (opcional)
+configuration:
+  pcfName: "PCF-01"                      # Nombre lógico único del PCF (opcional)
 
-sbi:                                   # Service-Based Interface (SBI) para APIs del PCF
-  scheme: "https"                      # Protocolo utilizado (http o https)
-  tls:                                 # Configuración TLS para cifrado de la interfaz
-    pem: "/etc/pcf/tls/server.pem"     # Ruta al certificado PEM (opcional)
-    key: "/etc/pcf/tls/server.key"     # Ruta a la clave privada TLS (opcional)
-  registerIPv4: "10.1.0.5"             # IP registrada en el NRF (opcional)
-  bindingIPv4: "0.0.0.0"               # IP local donde escucha el servidor (opcional)
-  port: 7443                           # Puerto de escucha SBI (opcional)
+  sbi:                                   # Service-Based Interface (SBI) para APIs del PCF
+    scheme: "https"                      # Protocolo utilizado (http o https)
+    tls:                                 # Configuración TLS para cifrado de la interfaz
+      pem: "/etc/pcf/tls/server.pem"     # Ruta al certificado PEM (opcional)
+      key: "/etc/pcf/tls/server.key"     # Ruta a la clave privada TLS (opcional)
+    registerIPv4: "10.1.0.5"             # IP registrada en el NRF (opcional)
+    bindingIPv4: "0.0.0.0"               # IP local donde escucha el servidor (opcional)
+    port: 7443                           # Puerto de escucha SBI (opcional)
 
-timeFormat: "2006-01-02T15:04:05Z07:00" # Formato de fecha/hora para logs y respuestas (opcional)
+  timeFormat: "2006-01-02T15:04:05Z07:00" # Formato de fecha/hora para logs y respuestas (opcional)
 
-defaultBdtRefId: "BDT-REF-001"         # Identificador de BDT por defecto (opcional)
+  defaultBdtRefId: "BDT-REF-001"         # Identificador de BDT por defecto (opcional)
 
-nrfUri: "https://nrf.operator.example.com"    # URI del Network Repository Function (NRF) (opcional)
+  nrfUri: "https://nrf.operator.example.com"    # URI del Network Repository Function (NRF) (opcional)
 
-webuiUri: "https://pcf-webui.example.com"     # URI de la interfaz web de administración (requerido)
+  webuiUri: "https://pcf-webui.example.com"     # URI de la interfaz web de administración (requerido)
 
-serviceList:                           # Lista de servicios exposados por el PCF (opcional)
-  - serviceName: "Npcf_PolicyControl"        # Nombre del servicio
-    suppFeat: "3GPP_RELEASE_15"              # Características soportadas (opcional)
-  - serviceName: "Npcf_SessionManagement"
-    suppFeat: "3GPP_RELEASE_16"
+  serviceList:                           # Lista de servicios exposados por el PCF (opcional)
+    - serviceName: "Npcf_PolicyControl"        # Nombre del servicio
+      suppFeat: "3GPP_RELEASE_15"              # Características soportadas (opcional)
+    - serviceName: "Npcf_SessionManagement"
+      suppFeat: "3GPP_RELEASE_16"
 
-# Configuración recibida desde RoC (Registry of Configurations)
-dnnList:                               # Mapa de SST+SD a lista de DNNs
-  "1-010203":                          # Clave: "sst-sd"
-    - "internet"                       # DNN para acceso a Internet
-    - "ims"                            # DNN para servicios IMS
-  "2-112233":
-    - "enterprise"
-    - "video"
+  # Configuración recibida desde RoC (Registry of Configurations)
+  dnnList:                               # Mapa de SST+SD a lista de DNNs
+    "1-010203":                          # Clave: "sst-sd"
+      - "internet"                       # DNN para acceso a Internet
+      - "ims"                            # DNN para servicios IMS
+    "2-112233":
+      - "enterprise"
+      - "video"
 
-slicePlmn:                             # Mapa de identificadores de slice a PLMN
-  "sliceA":                            # Slice A
-    plmnId:
-      mcc: "001"                       # Código de país móvil
-      mnc: "01"                        # Código de red móvil
-  "sliceB":
-    plmnId:
-      mcc: "001"
-      mnc: "02"
+  slicePlmn:                             # Mapa de identificadores de slice a PLMN
+    "sliceA":                            # Slice A
+      plmnId:
+        mcc: "001"                       # Código de país móvil
+        mnc: "01"                        # Código de red móvil
+    "sliceB":
+      plmnId:
+        mcc: "001"
+        mnc: "02"
 
-plmnList:                              # Lista de PLMNs soportados por este PCF (opcional)
-  - plmnId:
-      mcc: "001"                       # Código de país móvil
-      mnc: "01"                        # Código de red móvil
-  - plmnId:
-      mcc: "002"
-      mnc: "02"
+  plmnList:                              # Lista de PLMNs soportados por este PCF (opcional)
+    - plmnId:
+        mcc: "001"                       # Código de país móvil
+        mnc: "01"                        # Código de red móvil
+    - plmnId:
+        mcc: "002"
+        mnc: "02"
 
-enableNrfCaching: true                 # Habilita caché de información del NRF
+  enableNrfCaching: true                 # Habilita caché de información del NRF
 
-nrfCacheEvictionInterval: 300          # Intervalo en segundos para expulsión de la caché del NRF (opcional)
+  nrfCacheEvictionInterval: 300          # Intervalo en segundos para expulsión de la caché del NRF (opcional)

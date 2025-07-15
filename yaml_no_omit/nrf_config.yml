@@ -2,26 +2,35 @@
 info:
   version: 1.0.0
   description: NRF initial configuration
-sbi:                             # Service-Based Interface (SBI) - configuración del API
-  scheme: "https"                # Protocolo utilizado para SBI (http o https)
-  tls:                           # Configuración TLS para cifrado de la interfaz
-    pem: "/etc/nf/tls/server.pem"  # Ruta al certificado PEM (opcional)
-    key: "/etc/nf/tls/server.key"  # Ruta a la clave privada TLS (opcional)
-  registerIPv4: "10.0.0.20"      # IP registrada en otro NRF (opcional)
-  bindingIPv4: "0.0.0.0"         # IP local donde escucha el servidor (opcional)
-  port: 7443                     # Puerto de escucha SBI (opcional)
+configuration:
+  sbi:                             # Service-Based Interface (SBI) - configuración del API
+    scheme: "https"                # Protocolo utilizado para SBI (http o https)
+    tls:                           # Configuración TLS para cifrado de la interfaz
+      pem: "/etc/nf/tls/server.pem"  # Ruta al certificado PEM (opcional)
+      key: "/etc/nf/tls/server.key"  # Ruta a la clave privada TLS (opcional)
+    registerIPv4: "10.0.0.20"      # IP registrada en otro NRF (opcional)
+    bindingIPv4: "0.0.0.0"         # IP local donde escucha el servidor (opcional)
+    port: 7443                     # Puerto de escucha SBI (opcional)
 
-MongoDBName: "nf_data_db"        # Nombre de la base de datos MongoDB (requerido)
-MongoDBUrl: "mongodb://user:pass@mongo:27017/nf_data_db"  # URL de conexión a MongoDB (requerido)
+  MongoDBName: "nf_data_db"        # Nombre de la base de datos MongoDB (requerido)
+  MongoDBUrl: "mongodb://user:pass@mongo:27017/nf_data_db"  # URL de conexión a MongoDB (requerido)
 
-webuiUri: "https://nf-webui.example.com"  # URI de la interfaz web de administración (requerido)
+  webuiUri: "https://nf-webui.example.com"  # URI de la interfaz web de administración (requerido)
 
-serviceNameList:                 # Lista de servicios expuestos por este NF (opcional)
-  - "Nnrf_NFDiscovery"           # Servicio de descubrimiento de NF
-  - "Nnrf_EventExposure"         # Servicio de exposición de eventos
+  serviceNameList:                 # Lista de servicios expuestos por este NF (opcional)
+    - "Nnrf_NFDiscovery"           # Servicio de descubrimiento de NF
+    - "Nnrf_EventExposure"         # Servicio de exposición de eventos
 
-nfKeepAliveTime: 60              # Intervalo en segundos para keep-alive del NF (opcional)
+  nfKeepAliveTime: 60              # Intervalo en segundos para keep-alive del NF (opcional)
 
-mongoDBStreamEnable: true        # Habilita el streaming de cambios desde MongoDB (requerido)
+  mongoDBStreamEnable: true        # Habilita el streaming de cambios desde MongoDB (requerido)
 
-nfProfileExpiryEnable: true      # Activa la expiración automática de perfiles NF (requerido)
+  nfProfileExpiryEnable: true      # Activa la expiración automática de perfiles NF (requerido)
+
+# the kind of log output
+# debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
+# ReportCaller: enable the caller report or not, value: true or false
+logger:
+  NRF:
+    debugLevel: info
+    ReportCaller: false
