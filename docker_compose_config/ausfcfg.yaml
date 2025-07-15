@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2024 Canonical Ltd.
+
+configuration:
+  groupId: ausfGroup001
+  nrfUri: http://172.28.0.4:8000
+  sbi:
+    bindingIPv4: 172.28.0.3
+    port: 29509
+    registerIPv4: 172.28.0.3
+    scheme: https
+    tls: # the local path of TLS key
+      key: /support/TLS/ausf.pem # AUSF TLS Certificate
+      pem: /support/TLS/ausf.pem # AUSF TLS Private key
+  serviceNameList:
+    - nausf-auth
+info:
+  description: AUSF initial local configuration
+  version: 1.0.0
+
+
