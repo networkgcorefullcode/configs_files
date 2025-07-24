@@ -14,7 +14,7 @@ configuration:
   ngapIpList:  # the IP list of N2 interfaces on this AMF
     - amf
   sbi: # Service-based interface information
-    scheme: https # the protocol for sbi (http or https)
+    scheme: http # the protocol for sbi (http or https)
     registerIPv4: amf # IP used to register to NRF
     bindingIPv4: 0.0.0.0  # IP used to bind the service
     port: 8000 # port used to bind the service
@@ -60,7 +60,7 @@ configuration:
           sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
   supportDnnList:  # the DNN (Data Network Name) list supported by this AMF
     - internet
-  nrfUri: https://nrf:8000 # a valid URI of NRF
+  nrfUri: http://nrf:8000 # a valid URI of NRF
   security:  # NAS security parameters
     integrityOrder: # the priority of integrity algorithms
       - NIA2

@@ -10,7 +10,7 @@ info:
 configuration:
   nssfName: NSSF
   sbi:
-    scheme: https
+    scheme: http
     ipv4Addr: nssf
     port: 29531
     tls: # the local path of TLS key
@@ -19,7 +19,7 @@ configuration:
   serviceNameList:
     - nnssf_nsselection
     - nnssf_nssaiavailability
-  nrfUri: https://nrf:8000
+  nrfUri: http://nrf:8000
   supportedPlmnList:
     - mcc: 466
       mnc: 92
@@ -38,7 +38,7 @@ configuration:
           sd: 1
         - sst: 2
           sd: 2
-  webuiUri: https://webui:5000
+  webuiUri: http://webui:5000
 
   nsiList:
     - snssai:

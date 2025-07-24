@@ -1,10 +1,5 @@
 info:
-  vers  webui-tls:                  # Configuración TLS para el WebUI
-    pem: /var/run/certs/webui.crt # (string) Ruta al archivo PEM del certificado TLS
-    key: /var/run/certs/webui.key # (string) Ruta al archivo de clave privada TLS
-  nfconfig-tls:               # Configuración TLS para la comunicación con NF Config
-    pem: /var/run/certs/webui.crt # (string) Ruta al archivo PEM del certificado TLS de NF Config
-    key: /var/run/certs/webui.key # (string) Ruta al archivo de clave privada TLS de NF Config1.0.0"           # (string) Versión del archivo de configuración
+  version: "1.0.0"           # (string) Versión del archivo de configuración
   description: "WebUI Configuration Factory"  # (string) Descripción del propósito del archivo
   http-version: 2             # (int) Versión HTTP soportada por el WebUI
 
@@ -17,11 +12,11 @@ configuration:
     webuiDbName: "webuiDB"       # (string, opcional) Nombre de la base de datos específica para WebUI
     webuiDbUrl: "mongodb://mongodb:27017" # (string, opcional) URL específica para la base de datos WebUI
   webui-tls:                  # Configuración TLS para el WebUI
-    pem: "/var/run/certs/tls.crt" # (string) Ruta al archivo PEM del certificado TLS
-    key: "/var/run/certs/tls.key" # (string) Ruta al archivo de clave privada TLS
+    # pem: "/var/run/certs/tls.crt" # (string) Ruta al archivo PEM del certificado TLS
+    # key: "/var/run/certs/tls.key" # (string) Ruta al archivo de clave privada TLS
   nfconfig-tls:               # Configuración TLS para la comunicación con NF Config
-    pem: "/var/run/certs/tls.crt" # (string) Ruta al archivo PEM del certificado TLS de NF Config
-    key: "/var/run/certs/tls.key" # (string) Ruta al archivo de clave privada TLS de NF Config
+    # pem: "/var/run/certs/tls.crt" # (string) Ruta al archivo PEM del certificado TLS de NF Config
+    # key: "/var/run/certs/tls.key" # (string) Ruta al archivo de clave privada TLS de NF Config
 
   spec-compliant-sdf: false   # (bool) Cumplimiento estricto del SDF
   enableAuthentication: false # (bool, opcional) Habilita autenticación en el WebUI

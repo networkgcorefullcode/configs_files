@@ -21,7 +21,7 @@ configuration:
     brokerUri: "sd-core-kafka-headless"
     brokerPort: 9092
     topicName: "sdcore-data-source-smf"
-  webuiUri: https://webui:5000
+  webuiUri: http://webui:5000
   staticIpInfo:
     - dnn: internet_1
       imsiIpInfo:
@@ -37,7 +37,7 @@ configuration:
         supi-123456789012348: "8.8.8.8"
   smfName: SMF # the name of this SMF
   sbi: # Service-based interface information
-    scheme: https # the protocol for sbi (http or https)
+    scheme: http # the protocol for sbi (http or https)
     registerIPv4: smf # IP used to register to NRF
     bindingIPv4: 0.0.0.0  # IP used to bind the service
     port: 29502 # Port used to bind the service
@@ -99,7 +99,7 @@ configuration:
     links: # the topology graph of userplane, A and B represent the two nodes of each link
       - A: gNB
         B: UPF1
-  nrfUri: https://nrf:8000 # a valid URI of NRF
+  nrfUri: http://nrf:8000 # a valid URI of NRF
 
 # the kind of log output
   # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic

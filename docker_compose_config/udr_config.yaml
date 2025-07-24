@@ -8,7 +8,7 @@ info:
 
 configuration:
   sbi: # Service Based Interface
-    scheme: https
+    scheme: http
     registerIPv4: udr
     bindingIPv4: 0.0.0.0
     port: 8000
@@ -18,8 +18,8 @@ configuration:
   mongodb:
     name: aether
     url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
-  nrfUri: https://nrf:8000
-  webuiUri: https://webui:5000
+  nrfUri: http://nrf:8000
+  webuiUri: http://webui:5000
 
 logger:
   UDR:
