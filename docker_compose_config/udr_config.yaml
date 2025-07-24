@@ -14,9 +14,9 @@ configuration:
     port: 8000
   mongodb:
     name: aether
-    url: http://dummy
-    authKeysDbName: authentication
-    authUrl: http://dummy
+    url: "mongodb://172.28.0.30:27017"  # URL de conexión con credenciales y host:puerto
+  nrfUri: http://172.28.0.4:8000
+
 logger:
   UDR:
     debugLevel: debug

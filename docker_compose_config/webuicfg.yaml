@@ -1,0 +1,15 @@
+info:
+  version: "1.0.0"
+  description: "WebUI Configuration Factory"
+  http-version: 2
+
+configuration:
+  mongodb:
+    name: "webuiDB"
+    url: "mongodb://mongodb:27017"
+
+  mode5G: true
+  spec-compliant-sdf: true
+  enableAuthentication: true
+  send-pebble-notifications: false
+  cfgport: 8080
