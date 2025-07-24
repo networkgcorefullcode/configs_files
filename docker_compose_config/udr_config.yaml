@@ -17,3 +17,7 @@ configuration:
     url: http://dummy
     authKeysDbName: authentication
     authUrl: http://dummy
+logger:
+  UDR:
+    debugLevel: debug
+    ReportCaller: false

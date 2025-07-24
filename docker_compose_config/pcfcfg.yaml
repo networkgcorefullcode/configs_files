@@ -25,3 +25,7 @@ configuration:
 info:
   description: PCF initial local configuration
   version: 1.0.0
+logger:
+  PCF:
+    debugLevel: debug
+    ReportCaller: false

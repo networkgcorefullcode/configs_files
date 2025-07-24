@@ -18,4 +18,7 @@ info:
   description: AUSF initial local configuration
   version: 1.0.0
 
-
+logger:
+  AUSF:
+    debugLevel: debug
+    ReportCaller: false

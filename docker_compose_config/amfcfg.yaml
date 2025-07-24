@@ -114,14 +114,14 @@ configuration:
   # ReportCaller: enable the caller report or not, value: true or false
 logger:
   AMF:
-    debugLevel: info
+    debugLevel: debug
   NAS:
-    debugLevel: info
+    debugLevel: debug
   FSM:
-    debugLevel: info
+    debugLevel: debug
   NGAP:
-    debugLevel: info
+    debugLevel: debug
   Aper:
-    debugLevel: info
+    debugLevel: debug
   OpenApi:
-    debugLevel: info
+    debugLevel: debug
