@@ -9,17 +9,17 @@ info:
 configuration:
   sbi: # Service Based Interface
     scheme: https
-    registerIPv4: 172.28.0.9
-    bindingIPv4: 172.28.0.9
+    registerIPv4: udr
+    bindingIPv4: 0.0.0.0
     port: 8000
     tls: # the local path of TLS key
-      key: /var/run/certs/tls.key # UDR TLS Certificate
-      pem: /var/run/certs/tls.crt # UDR TLS Private key
+      key: /var/run/certs/udr.key # UDR TLS Private key
+      pem: /var/run/certs/udr.crt # UDR TLS Certificate
   mongodb:
     name: aether
-    url: "mongodb://172.28.0.30:27017"  # URL de conexión con credenciales y host:puerto
-  nrfUri: https://172.28.0.4:8000
-  webuiUri: https://172.28.0.11:5000
+    url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
+  nrfUri: https://nrf:8000
+  webuiUri: https://webui:5000
 
 logger:
   UDR:

@@ -1,5 +1,10 @@
 info:
-  version: "1.0.0"           # (string) Versión del archivo de configuración
+  vers  webui-tls:                  # Configuración TLS para el WebUI
+    pem: /var/run/certs/webui.crt # (string) Ruta al archivo PEM del certificado TLS
+    key: /var/run/certs/webui.key # (string) Ruta al archivo de clave privada TLS
+  nfconfig-tls:               # Configuración TLS para la comunicación con NF Config
+    pem: /var/run/certs/webui.crt # (string) Ruta al archivo PEM del certificado TLS de NF Config
+    key: /var/run/certs/webui.key # (string) Ruta al archivo de clave privada TLS de NF Config1.0.0"           # (string) Versión del archivo de configuración
   description: "WebUI Configuration Factory"  # (string) Descripción del propósito del archivo
   http-version: 2             # (int) Versión HTTP soportada por el WebUI
 

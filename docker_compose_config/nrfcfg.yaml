@@ -7,19 +7,19 @@ info:
 
 configuration:
   MongoDBName: aether # database name in MongoDB
-  MongoDBUrl: mongodb://172.28.0.30:27017 # a valid URL of the mongodb
+  MongoDBUrl: mongodb://mongodb:27017 # a valid URL of the mongodb
   sbi: # Service-based interface information
     scheme: https # the protocol for sbi (http or https)
-    registerIPv4: 172.28.0.4 # IP used to serve NFs or register to another NRF
-    bindingIPv4: 172.28.0.4  # IP used to bind the service
+    registerIPv4: nrf # IP used to serve NFs or register to another NRF
+    bindingIPv4: 0.0.0.0  # IP used to bind the service
     port: 8000 # port used to bind the service
     tls: # the local path of TLS key
-      pem: /var/run/certs/tls.crt # NRF TLS Certificate
-      key: /var/run/certs/tls.key # NRF TLS Private key
+      pem: /var/run/certs/nrf.crt # NRF TLS Certificate
+      key: /var/run/certs/nrf.key # NRF TLS Private key
   serviceNameList: # the SBI services provided by this NRF, refer to TS 29.510
     - nnrf-nfm # Nnrf_NFManagement service
     - nnrf-disc # Nnrf_NFDiscovery service
-  webuiUri: "https://172.28.0.11:5000" # URI del WebUI del AMF
+  webuiUri: "https://webui:5000" # URI del WebUI del AMF
   
 
 # the kind of log output

@@ -11,15 +11,15 @@ configuration:
   nssfName: NSSF
   sbi:
     scheme: https
-    ipv4Addr: 172.28.0.5
+    ipv4Addr: nssf
     port: 29531
     tls: # the local path of TLS key
-      key: /var/run/tls.key # NSSF TLS Certificate
-      pem: /var/run/tls.crt # NSSF TLS Private key
+      key: /var/run/certs/nssf.key # NSSF TLS Private key
+      pem: /var/run/certs/nssf.crt # NSSF TLS Certificate
   serviceNameList:
     - nnssf_nsselection
     - nnssf_nssaiavailability
-  nrfUri: https://172.28.0.4:8000
+  nrfUri: https://nrf:8000
   supportedPlmnList:
     - mcc: 466
       mnc: 92
@@ -38,7 +38,7 @@ configuration:
           sd: 1
         - sst: 2
           sd: 2
-  webuiUri: https://172.28.0.11:5000
+  webuiUri: https://webui:5000
 
   nsiList:
     - snssai:

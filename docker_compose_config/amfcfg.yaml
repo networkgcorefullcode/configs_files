@@ -12,20 +12,20 @@ configuration:
   amfName: AMF # the name of this AMF
   amfDBName: "amf_db"   # Nombre de la base de datos MongoDB para el AMF
   ngapIpList:  # the IP list of N2 interfaces on this AMF
-    - 172.28.0.2
+    - amf
   sbi: # Service-based interface information
     scheme: https # the protocol for sbi (http or https)
-    registerIPv4: 172.28.0.2 # IP used to register to NRF
-    bindingIPv4: 172.28.0.2  # IP used to bind the service
+    registerIPv4: amf # IP used to register to NRF
+    bindingIPv4: 0.0.0.0  # IP used to bind the service
     port: 8000 # port used to bind the service
     tls: # the local path of TLS key
-      key: /var/run/certs/tls.key # AMF TLS Certificate
-      pem: /var/run/certs/tls.crt # AMF TLS Private key
+      key: /var/run/certs/amf.key # AMF TLS Private key
+      pem: /var/run/certs/amf.crt # AMF TLS Certificate
 
   mongodb:                              # Configuración de conexión a MongoDB
     name: "amf_db"                      # Nombre de la base de datos
-    url: "mongodb://172.28.0.30:27017"  # URL de conexión con credenciales y host:puerto
-  webuiUri: "http://172.28.0.11:5000" # URI del WebUI del AMF
+    url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
+  webuiUri: "http://webui:5000" # URI del WebUI del AMF
   enableDBStore: true                   # Permitir almacenamiento en BD
 
   enableNrfCaching: true                # Habilitar caching de NRF
@@ -60,7 +60,7 @@ configuration:
           sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
   supportDnnList:  # the DNN (Data Network Name) list supported by this AMF
     - internet
-  nrfUri: https://172.28.0.4:8000 # a valid URI of NRF
+  nrfUri: https://nrf:8000 # a valid URI of NRF
   security:  # NAS security parameters
     integrityOrder: # the priority of integrity algorithms
       - NIA2

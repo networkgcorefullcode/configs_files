@@ -4,19 +4,19 @@
 configuration:
   keys:
     udmProfileAHNPrivateKey: whatever private key
-  nrfUri: https://172.28.0.4:8000
+  nrfUri: https://nrf:8000
   enableNrfCaching: true
   nrfCacheEvictionInterval: 900
-  webuiUri: https://172.28.0.11:5000
+  webuiUri: https://webui:5000
   sbi:
-    bindingIPv4: 172.28.0.8
+    bindingIPv4: 0.0.0.0
     port: 29503
-    registerIPv4: 172.28.0.8
+    registerIPv4: udm
     scheme: https
     tls:
       log: /opt/sslkey.log
-      key: /var/run/certs/tls.key
-      pem: /var/run/certs/tls.crt
+      key: /var/run/certs/udm.key # UDM TLS Private key
+      pem: /var/run/certs/udm.crt # UDM TLS Certificate
   serviceList:
     - nudm-sdm
     - nudm-uecm
