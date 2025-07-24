@@ -35,6 +35,8 @@ configuration:
           sd: 1
         - sst: 2
           sd: 2
+  webuiUri: http://172.28.0.11:5000
+  
   nsiList:
     - snssai:
         sst: 1

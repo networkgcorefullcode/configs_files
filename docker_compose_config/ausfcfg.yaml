@@ -14,6 +14,8 @@ configuration:
       pem: /support/TLS/ausf.pem # AUSF TLS Private key
   serviceNameList:
     - nausf-auth
+  webuiUri: "http://172.28.0.11:5000" # URI del WebUI del AMF
+  
 info:
   description: AUSF initial local configuration
   version: 1.0.0

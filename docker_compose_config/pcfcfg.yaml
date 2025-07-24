@@ -6,7 +6,7 @@ configuration:
   nrfUri: http://172.28.0.4:8000
   enableNrfCaching: true
   nrfCacheEvictionInterval: 900
-  webuiUri: webui:9876
+  webuiUri: http://172.28.0.11:5000
   pcfName: PCF
   sbi:
     bindingIPv4: 172.28.0.6

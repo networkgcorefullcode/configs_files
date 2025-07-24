@@ -15,7 +15,7 @@ configuration:
     tls:
       log: /opt/sslkey.log
       key: /var/run/certs/tls.key
-      pem: /var/run/certs/tls.pem
+      pem: /var/run/certs/tls.crt
   serviceList:
     - nudm-sdm
     - nudm-uecm
