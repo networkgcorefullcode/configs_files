@@ -19,8 +19,8 @@ configuration:
     bindingIPv4: 172.28.0.2  # IP used to bind the service
     port: 8000 # port used to bind the service
     tls: # the local path of TLS key
-      key: /var/run/tls.key # AMF TLS Certificate
-      pem: /var/run/tls.crt # AMF TLS Private key
+      key: /var/run/certs/tls.key # AMF TLS Certificate
+      pem: /var/run/certs/tls.crt # AMF TLS Private key
 
   mongodb:                              # Configuración de conexión a MongoDB
     name: "amf_db"                      # Nombre de la base de datos

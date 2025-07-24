@@ -13,8 +13,8 @@ configuration:
     bindingIPv4: 172.28.0.9
     port: 8000
     tls: # the local path of TLS key
-      key: /var/run/tls.key # UDR TLS Certificate
-      pem: /var/run/tls.crt # UDR TLS Private key
+      key: /var/run/certs/tls.key # UDR TLS Certificate
+      pem: /var/run/certs/tls.crt # UDR TLS Private key
   mongodb:
     name: aether
     url: "mongodb://172.28.0.30:27017"  # URL de conexión con credenciales y host:puerto

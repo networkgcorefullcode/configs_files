@@ -42,8 +42,8 @@ configuration:
     bindingIPv4: 172.28.0.7  # IP used to bind the service
     port: 29502 # Port used to bind the service
     tls: # the local path of TLS key
-      key: /var/run/tls.key # SMF TLS Certificate
-      pem: /var/run/tls.crt # SMF TLS Private key
+      key: /var/run/certs/tls.key # SMF TLS Certificate
+      pem: /var/run/certs/tls.crt # SMF TLS Private key
   serviceNameList: # the SBI services provided by this SMF, refer to TS 29.502
     - nsmf-pdusession # Nsmf_PDUSession service
     - nsmf-event-exposure # Nsmf_EventExposure service

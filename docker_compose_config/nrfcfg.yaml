@@ -14,8 +14,8 @@ configuration:
     bindingIPv4: 172.28.0.4  # IP used to bind the service
     port: 8000 # port used to bind the service
     tls: # the local path of TLS key
-      pem: /var/run/tls.crt # NRF TLS Certificate
-      key: /var/run/tls.key # NRF TLS Private key
+      pem: /var/run/certs/tls.crt # NRF TLS Certificate
+      key: /var/run/certs/tls.key # NRF TLS Private key
   serviceNameList: # the SBI services provided by this NRF, refer to TS 29.510
     - nnrf-nfm # Nnrf_NFManagement service
     - nnrf-disc # Nnrf_NFDiscovery service
