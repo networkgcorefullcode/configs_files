@@ -4,14 +4,15 @@
 configuration:
   keys:
     udmProfileAHNPrivateKey: whatever private key
-  nrfUri: http://172.28.0.4:8000
+  nrfUri: https://172.28.0.4:8000
   enableNrfCaching: true
   nrfCacheEvictionInterval: 900
+  webuiUri: https://172.28.0.11:5000
   sbi:
     bindingIPv4: 172.28.0.8
     port: 29503
     registerIPv4: 172.28.0.8
-    scheme: http
+    scheme: https
     tls:
       log: /opt/sslkey.log
       key: /var/run/certs/tls.key

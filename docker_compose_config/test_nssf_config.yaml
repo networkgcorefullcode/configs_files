@@ -19,7 +19,7 @@ configuration:
   serviceNameList:
     - nnssf_nsselection
     - nnssf_nssaiavailability
-  nrfUri: http://172.28.0.4:8000
+  nrfUri: https://172.28.0.4:8000
   supportedPlmnList:
     - mcc: 466
       mnc: 92
@@ -38,8 +38,8 @@ configuration:
           sd: 1
         - sst: 2
           sd: 2
-  webuiUri: http://172.28.0.11:5000
-  
+  webuiUri: https://172.28.0.11:5000
+
   nsiList:
     - snssai:
         sst: 1

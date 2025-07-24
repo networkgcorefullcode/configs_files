@@ -3,7 +3,7 @@
 
 configuration:
   groupId: ausfGroup001
-  nrfUri: http://172.28.0.4:8000
+  nrfUri: https://172.28.0.4:8000
   sbi:
     bindingIPv4: 172.28.0.3
     port: 29509
@@ -14,7 +14,7 @@ configuration:
       pem: /var/run/tls.crt # AUSF TLS Private key
   serviceNameList:
     - nausf-auth
-  webuiUri: "http://172.28.0.11:5000" # URI del WebUI del AMF
+  webuiUri: "https://172.28.0.11:5000" # URI del WebUI del AMF
   
 info:
   description: AUSF initial local configuration

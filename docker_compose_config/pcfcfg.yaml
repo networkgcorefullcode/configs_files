@@ -3,10 +3,10 @@
 
 configuration:
   defaultBdtRefId: BdtPolicyId-
-  nrfUri: http://172.28.0.4:8000
+  nrfUri: https://172.28.0.4:8000
   enableNrfCaching: true
   nrfCacheEvictionInterval: 900
-  webuiUri: http://172.28.0.11:5000
+  webuiUri: https://172.28.0.11:5000
   pcfName: PCF
   sbi:
     bindingIPv4: 172.28.0.6

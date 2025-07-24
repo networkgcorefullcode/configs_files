@@ -21,7 +21,7 @@ configuration:
     brokerUri: "sd-core-kafka-headless"
     brokerPort: 9092
     topicName: "sdcore-data-source-smf"
-  webuiUri: http://172.28.0.11:5000
+  webuiUri: https://172.28.0.11:5000
   staticIpInfo:
     - dnn: internet_1
       imsiIpInfo:
@@ -99,7 +99,7 @@ configuration:
     links: # the topology graph of userplane, A and B represent the two nodes of each link
       - A: gNB
         B: UPF1
-  nrfUri: http://172.28.0.4:8000 # a valid URI of NRF
+  nrfUri: https://172.28.0.4:8000 # a valid URI of NRF
 
 # the kind of log output
   # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
