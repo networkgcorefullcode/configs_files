@@ -6,11 +6,11 @@ info:
 configuration:
   mongodb:                    # Configuración de la base de datos MongoDB
     name: "webui"              # (string) Nombre de la base de datos principal
-    url: "mongodb://mongodb:27017/webuiDB?connect=direct" # (string) URL de conexión a MongoDB
+    url: "mongodb://mongodb:27017" # (string) URL de conexión a MongoDB
     authKeysDbName: "authdb"   # (string) Nombre de la base de datos de llaves de autenticación
-    authUrl: "mongodb://mongodb:27017/webuiDB?connect=direct" # (string) URL de autenticación
+    authUrl: "mongodb://mongodb:27017" # (string) URL de autenticación
     webuiDbName: "webuiDB"       # (string, opcional) Nombre de la base de datos específica para WebUI
-    webuiDbUrl: "mongodb://mongodb:27017/webuiDB?connect=direct" # (string, opcional) URL específica para la base de datos WebUI
+    webuiDbUrl: "mongodb://mongodb:27017" # (string, opcional) URL específica para la base de datos WebUI
   webui-tls:                  # Configuración TLS para el WebUI
     pem: "/var/run/certs/tls.crt" # (string) Ruta al archivo PEM del certificado TLS
     key: "/var/run/certs/tls.key" # (string) Ruta al archivo de clave privada TLS
