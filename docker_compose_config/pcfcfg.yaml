@@ -12,7 +12,10 @@ configuration:
     bindingIPv4: 172.28.0.6
     port: 29507
     registerIPv4: 172.28.0.6
-    scheme: http
+    scheme: https
+    tls: # the local path of TLS key
+      key: /var/run/tls.key # PCF TLS Certificate
+      pem: /var/run/tls.crt # PCF TLS Private key
   serviceList:
   - serviceName: npcf-am-policy-control
   - serviceName: npcf-smpolicycontrol

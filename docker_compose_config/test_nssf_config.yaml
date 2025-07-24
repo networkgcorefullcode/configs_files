@@ -13,6 +13,9 @@ configuration:
     scheme: https
     ipv4Addr: 172.28.0.5
     port: 29531
+    tls: # the local path of TLS key
+      key: /var/run/tls.key # NSSF TLS Certificate
+      pem: /var/run/tls.crt # NSSF TLS Private key
   serviceNameList:
     - nnssf_nsselection
     - nnssf_nssaiavailability
