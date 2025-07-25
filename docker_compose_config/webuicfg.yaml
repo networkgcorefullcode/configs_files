@@ -23,3 +23,7 @@ configuration:
   send-pebble-notifications: false # (bool, opcional) Habilita notificaciones Pebble
   cfgport: 5000               # (int, opcional) Puerto de configuración
   
+logger:
+  WEBUI:
+    debugLevel: debug
+    ReportCaller: false
