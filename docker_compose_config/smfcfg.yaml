@@ -21,7 +21,7 @@ configuration:
     brokerUri: "sd-core-kafka-headless"
     brokerPort: 9092
     topicName: "sdcore-data-source-smf"
-  webuiUri: http://webui:5000
+  webuiUri: http://webui:5001
   staticIpInfo:
     - dnn: internet_1
       imsiIpInfo:

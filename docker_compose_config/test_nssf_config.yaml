@@ -38,7 +38,7 @@ configuration:
           sd: 1
         - sst: 2
           sd: 2
-  webuiUri: http://webui:5000
+  webuiUri: http://webui:5001
 
   nsiList:
     - snssai:

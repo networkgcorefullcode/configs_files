@@ -14,7 +14,7 @@ configuration:
       pem: /var/run/certs/ausf.crt # AUSF TLS Certificate
   serviceNameList:
     - nausf-auth
-  webuiUri: "http://webui:5000" # URI del WebUI del AMF
+  webuiUri: "http://webui:5001" # URI del WebUI del AMF
   
 info:
   description: AUSF initial local configuration

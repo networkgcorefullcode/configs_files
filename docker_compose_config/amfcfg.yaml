@@ -25,7 +25,7 @@ configuration:
   mongodb:                              # Configuración de conexión a MongoDB
     name: "amf_db"                      # Nombre de la base de datos
     url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
-  webuiUri: "http://webui:5000" # URI del WebUI del AMF
+  webuiUri: "http://webui:5001" # URI del WebUI del AMF
   enableDBStore: true                   # Permitir almacenamiento en BD
 
   enableNrfCaching: true                # Habilitar caching de NRF
