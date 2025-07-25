@@ -21,7 +21,6 @@ configuration:
   spec-compliant-sdf: false   # (bool) Cumplimiento estricto del SDF
   enableAuthentication: false # (bool, opcional) Habilita autenticación en el WebUI
   send-pebble-notifications: false # (bool, opcional) Habilita notificaciones Pebble
-  cfgport: 5000               # (int, opcional) Puerto de configuración
   
 logger:
   WEBUI:
