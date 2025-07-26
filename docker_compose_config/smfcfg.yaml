@@ -16,7 +16,7 @@ configuration:
   debugProfilePort: 5001
   mongodb:
     name: sdcore_smf
-    url: "mongodb://mongodb-arbiter-headless"
+    url: "mongodb://mongodb:27017"  # Cambiado para usar el nombre del contenedor
   kafkaInfo:
     brokerUri: "sd-core-kafka-headless"
     brokerPort: 9092
