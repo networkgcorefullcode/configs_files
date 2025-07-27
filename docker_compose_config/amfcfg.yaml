@@ -12,7 +12,12 @@ configuration:
   amfName: AMF # the name of this AMF
   amfDBName: "amf_db"   # Nombre de la base de datos MongoDB para el AMF
   ngapIpList:  # the IP list of N2 interfaces on this AMF
-    - amf
+    - 0.0.0.0
+
+  ngappPort: 38412                      # Puerto UDP/TCP usado por NGAP
+  sctpGrpcPort: 50051                   # Puerto gRPC para comunicaciones SCTP
+  enableSctpLb: true                    # Habilitar el balanceador de carga SCTP
+
   sbi: # Service-based interface information
     scheme: http # the protocol for sbi (http or https)
     registerIPv4: amf # IP used to register to NRF
@@ -27,6 +32,7 @@ configuration:
     url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
   webuiUri: "http://webui:5001" # URI del WebUI del AMF
   enableDBStore: true                   # Permitir almacenamiento en BD
+
 
   enableNrfCaching: true                # Habilitar caching de NRF
 
