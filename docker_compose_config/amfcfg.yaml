@@ -12,7 +12,7 @@ configuration:
   amfName: AMF # the name of this AMF
   amfDBName: "amf_db"   # Nombre de la base de datos MongoDB para el AMF
   ngapIpList:  # the IP list of N2 interfaces on this AMF
-    - 0.0.0.0
+    - amf
 
   ngappPort: 38412                      # Puerto UDP/TCP usado por NGAP
   sctpGrpcPort: 50051                   # Puerto gRPC para comunicaciones SCTP

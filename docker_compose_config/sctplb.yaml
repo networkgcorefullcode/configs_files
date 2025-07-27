@@ -11,7 +11,7 @@ logger:
   clientdiscLogs: debug
 configuration:
   ngapIpList:
-  - 0.0.0.0
+  - sctplb
   ngappPort: 38416
   sctpGrpcPort: 50051
   type: "grpc"
