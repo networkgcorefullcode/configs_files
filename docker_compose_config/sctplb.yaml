@@ -16,4 +16,4 @@ configuration:
   sctpGrpcPort: 50051
   type: "grpc"
   services:
-    - uri: "amf:50051"  # Cambiado para usar el nombre del contenedor AMF
+    - uri: "amf"  # Solo el nombre del contenedor, sin puerto
