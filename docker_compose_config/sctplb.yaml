@@ -13,7 +13,7 @@ configuration:
   ngapIpList:
   - 0.0.0.0
   ngappPort: 38416
-  sctpGrpcPort: 5000
+  sctpGrpcPort: 50051
   type: "grpc"
   services:
     - uri: "amf"
