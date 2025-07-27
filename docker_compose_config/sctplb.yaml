@@ -6,9 +6,13 @@ info:
   description: SctpLb initial local configuration
   version: 1.0.1
 logger:
-  sctpLogs: debug
-  dispatcherLogs: debug
-  clientdiscLogs: debug
+  sctpLogs: debug          # Logs relacionados con SCTP
+  dispatcherLogs: debug    # Logs del dispatcher de mensajes
+  clientdiscLogs: debug    # Logs de descubrimiento de clientes/servicios
+  grpcLogs: debug          # Logs de comunicaciones gRPC
+  appLogs: debug            # Logs generales de la aplicación
+  cfgLogs: debug            # Logs de configuración
+  ranLogs: debug           # Logs relacionados con RAN (Radio Access Network)
 configuration:
   ngapIpList:
   - sctplb
