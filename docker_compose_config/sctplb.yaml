@@ -16,4 +16,4 @@ configuration:
   sctpGrpcPort: 5000
   type: "grpc"
   services:
-    - uri: "sctplb"
+    - uri: "amf:50051"
