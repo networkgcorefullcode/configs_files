@@ -75,7 +75,7 @@
     "access": {
         // Para contenedores Docker, usar nombres de interfaces virtuales
         // "cndp_jsonc_file": "conf/cndp_upf_1worker.jsonc",
-        "ifname": "access"  // Interface virtual para N3
+        "ifname": "ens803f2"  // Interface virtual para N3
     },
 
     // N6 interface (hacia Internet/DN) 
@@ -83,7 +83,7 @@
         // "cndp_jsonc_file": "conf/cndp_upf_1worker.jsonc",
         // Uncomment line below to enable UE IP natting. It could be a single IP or multiple IPs
         // "ip_masquerade": "18.0.0.1 or 18.0.0.2 or 18.0.0.3",
-        "ifname": "core"  // Interface virtual para N6
+        "ifname": "ens803f3"  // Interface virtual para N6
     },
 
     // Number of worker threads. Default: 1
