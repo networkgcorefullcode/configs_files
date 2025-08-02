@@ -6,7 +6,7 @@ from scapy.all import *
 from scapy.contrib.gtp import *
 
 # for ip2long
-from conf.utils import *
+from docker_compose_config_notsim.utils import *
 
 # ====================================================
 #       SIM Create Packet Functions
