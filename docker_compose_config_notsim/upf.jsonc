@@ -10,8 +10,6 @@
 
     "log_level": "debug",
 
-    "max_ip_defrag_flows": "1000",
-
     "hwcksum": false,
 
     "gtppsc": false,
