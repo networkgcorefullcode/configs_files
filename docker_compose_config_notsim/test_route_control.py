@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, Mock, patch
 
 sys.modules["pybess.bess"] = MagicMock()
 
-from docker_compose_config_notsim.route_control import (RouteController, RouteEntry,
+from conf.route_control import (RouteController, RouteEntry,
                                 fetch_mac, mac_to_hex, mac_to_int,
                                 validate_ipv4)
 

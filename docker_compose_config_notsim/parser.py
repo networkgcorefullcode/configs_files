@@ -3,7 +3,7 @@
 # Copyright 2019 Intel Corporation
 
 # for get_env
-from docker_compose_config_notsim.utils import *
+from conf.utils import *
 
 # how many times should controller try to connect before giving up
 MAX_RETRIES = 5

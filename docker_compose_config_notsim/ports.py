@@ -6,7 +6,7 @@ import errno
 import inspect
 import sys
 
-from docker_compose_config_notsim.parser import *
+from conf.parser import *
 
 
 def setup_globals():
