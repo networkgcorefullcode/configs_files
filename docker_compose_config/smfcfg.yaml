@@ -77,6 +77,8 @@ configuration:
         mnc: "444"
   pfcp: # the IP address of N4 interface on this SMF (PFCP)
     addr: smf
+
+  enableUPFAdapter: false
   userplane_information: # list of userplane information
     up_nodes: # information of userplane node (AN or UPF)
       gNB: # the name of the node
