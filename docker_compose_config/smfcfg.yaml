@@ -97,6 +97,7 @@ configuration:
             endpoints: # the IP address of this N3/N9 interface on this UPF
               - upf
             networkInstance: internet # Data Network Name (DNN)
+        port: 8805
 
     links: # the topology graph of userplane, A and B represent the two nodes of each link
       - A: gNB
