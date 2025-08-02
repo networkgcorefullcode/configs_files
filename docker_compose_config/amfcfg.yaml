@@ -116,6 +116,7 @@ configuration:
     maxRetryTimes: 4 # the max number of retransmission
 
   kafkaInfo:                            # Información de Kafka para eventos y métricas
+    enableKafka: true
     brokerUri: "kafka"
     brokerPort: 9092 
     topicName: "sdcore-data-source-amf"                 # Topic donde publica AMF
