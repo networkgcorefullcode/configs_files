@@ -104,6 +104,12 @@ configuration:
         B: UPF1
   nrfUri: http://nrf:8000 # a valid URI of NRF
 
+  kafkaInfo:                                # Configuración de Kafka para eventos y métricas (opcional)
+    enableKafka: true                      # Activar Kafka
+    brokerUri: "kafka"         # URI del broker Kafka
+    topicName: "smf-events"                # Topic para publicar eventos SMF
+    brokerPort: 9092                       # Puerto del broker Kafka
+
 # the kind of log output
   # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
   # ReportCaller: enable the caller report or not, value: true or false

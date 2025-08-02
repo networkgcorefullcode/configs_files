@@ -115,6 +115,11 @@ configuration:
     expireTime: 6s   # default is 6 seconds
     maxRetryTimes: 4 # the max number of retransmission
 
+  kafkaInfo:                            # Información de Kafka para eventos y métricas
+    brokerUri: "kafka"
+    brokerPort: 9092 
+    topicName: "sdcore-data-source-amf"                 # Topic donde publica AMF
+
 # the kind of log output
   # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
   # ReportCaller: enable the caller report or not, value: true or false
