@@ -60,6 +60,9 @@ class Parser:
         if self.conf is None:
             print("Error loading configuration file.")
 
+        print("Loaded configuration:")
+        print(self.conf)
+
         # Maximum number of flows to manage ip4 frags for re-assembly
         try:
             self.max_ip_defrag_flows = int(self.conf["max_ip_defrag_flows"])
