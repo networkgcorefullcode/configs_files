@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2024 Canonical Ltd.
+
+configuration:
+  defaultBdtRefId: BdtPolicyId-
+  nrfUri: http://nrf:8000
+  enableNrfCaching: true
+  nrfCacheEvictionInterval: 900
+  webuiUri: http://webui:5001
+  pcfName: PCF
+  sbi:
+    bindingIPv4: 0.0.0.0
+    port: 29507
+    registerIPv4: pcf
+    scheme: http
+    tls: # the local path of TLS key
+      key: /var/run/certs/pcf.key # PCF TLS Private key
+      pem: /var/run/certs/pcf.crt # PCF TLS Certificate
+  serviceList:
+  - serviceName: npcf-am-policy-control
+  - serviceName: npcf-smpolicycontrol
+    suppFeat: 3fff
+  - serviceName: npcf-bdtpolicycontrol
+  - serviceName: npcf-policyauthorization
+    suppFeat: 3
+  - serviceName: npcf-eventexposure
+  - serviceName: npcf-ue-policy-control
+info:
+  description: PCF initial local configuration
+  version: 1.0.0
+logger:
+  PCF:
+    debugLevel: debug
+    ReportCaller: false
