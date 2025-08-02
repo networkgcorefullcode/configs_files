@@ -154,7 +154,7 @@
 
     // Control plane controller settings
     "cpiface": {
-        "peers": ["smf"],  // Cambiado de IP fija a nombre del contenedor SMF
+        "peers": ["upf-adapter"],  // Cambiado de IP fija a nombre del contenedor SMF
         // [Optional] Below parameters
         "dnn": "internet",
         "http_port": "8080",
