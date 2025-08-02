@@ -83,7 +83,7 @@ configuration:
         type: AN # the type of the node (AN or UPF)
       UPF1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        node_id: 172.18.0.2 # the IP/FQDN of N4 interface on this UPF (PFCP)
+        node_id: 172.18.0.2:8805 # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
