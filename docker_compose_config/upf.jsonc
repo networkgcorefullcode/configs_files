@@ -154,7 +154,7 @@
 
     // Control plane controller settings
     "cpiface": {
-        "peers": ["172.18.0.21", "172.18.0.15"],
+        "peers": ["smf"],
         // [Optional] Below parameters
         "dnn": "internet",
         "http_port": "8080",
