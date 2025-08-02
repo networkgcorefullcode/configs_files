@@ -9,7 +9,7 @@
     // "dpdk" to enable DPDK mode,
     // "sim" to generate synthetic traffic from BESS's Source module,
     // "" when running with UP4
-    "mode": "sim",  // Cambiado a "sim" para entorno containerizado de desarrollo
+    "mode": "af_packet",  // Cambiado a "sim" para entorno containerizado de desarrollo
 
     "table_sizes": {
         // Example sizes based on sim mode and 50K sessions. Customize as per your control plane
@@ -29,26 +29,26 @@
     "log_level": "debug",
 
     // Use the sim block to enable simulation using either Source module or via il_trafficgen
-    "sim": {
-        // At this point we can simulate either N3/N6 or N3/N9 traffic, so choose n6 or n9 below
-        "core": "n6",
-        "max_sessions": 50000,
-        "start_ue_ip": "16.0.0.1",
-        "start_enb_ip": "11.1.1.129",
-        "start_aupf_ip": "13.1.1.199",
-        "n6_app_ip": "6.6.6.6",
-        "n9_app_ip": "9.9.9.9",
-        "start_n3_teid": "0x30000000",
-        "start_n9_teid": "0x90000000",
-        "uplink_mbr": 500000,
-        // Make sure uplink_gbr is configured less than uplink_mbr if 'qfi' in pfcpiface/grpcsim.go is for GBR flows. Current default 'qfi' value is for Non-GBR flows
-        "uplink_gbr": 50000,
-        "downlink_mbr": 1000000,
-        // Make sure downlink_gbr is configured less than downlink_mbr if 'qfi' in pfcpiface/grpcsim.go is for GBR flows. Current default 'qfi' value is for Non-GBR flows
-        "downlink_gbr": 100000,
-        "pkt_size": 128,
-        "total_flows": 5000
-    },
+    // "sim": {
+    //     // At this point we can simulate either N3/N6 or N3/N9 traffic, so choose n6 or n9 below
+    //     "core": "n6",
+    //     "max_sessions": 50000,
+    //     "start_ue_ip": "16.0.0.1",
+    //     "start_enb_ip": "11.1.1.129",
+    //     "start_aupf_ip": "13.1.1.199",
+    //     "n6_app_ip": "6.6.6.6",
+    //     "n9_app_ip": "9.9.9.9",
+    //     "start_n3_teid": "0x30000000",
+    //     "start_n9_teid": "0x90000000",
+    //     "uplink_mbr": 500000,
+    //     // Make sure uplink_gbr is configured less than uplink_mbr if 'qfi' in pfcpiface/grpcsim.go is for GBR flows. Current default 'qfi' value is for Non-GBR flows
+    //     "uplink_gbr": 50000,
+    //     "downlink_mbr": 1000000,
+    //     // Make sure downlink_gbr is configured less than downlink_mbr if 'qfi' in pfcpiface/grpcsim.go is for GBR flows. Current default 'qfi' value is for Non-GBR flows
+    //     "downlink_gbr": 100000,
+    //     "pkt_size": 128,
+    //     "total_flows": 5000
+    // },
 
     // Max IP frag table entries (for IPv4 reassembly). Uncomment line below to enable
     // "max_ip_defrag_flows": "1000",
@@ -75,7 +75,7 @@
     "access": {
         // Para contenedores Docker, usar nombres de interfaces virtuales
         // "cndp_jsonc_file": "conf/cndp_upf_1worker.jsonc",
-        "ifname": "ens803f2"  // Interface virtual para N3
+        "ifname": "ens801f0"
     },
 
     // N6 interface (hacia Internet/DN) 
@@ -83,7 +83,7 @@
         // "cndp_jsonc_file": "conf/cndp_upf_1worker.jsonc",
         // Uncomment line below to enable UE IP natting. It could be a single IP or multiple IPs
         // "ip_masquerade": "18.0.0.1 or 18.0.0.2 or 18.0.0.3",
-        "ifname": "ens803f3"  // Interface virtual para N6
+        "ifname": "ens801f1"
     },
 
     // Number of worker threads. Default: 1
