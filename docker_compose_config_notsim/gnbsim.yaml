@@ -14,7 +14,7 @@ configuration:
   singleInterface: true #default value
   execInParallel: false #run all profiles in parallel
   httpServer: # Serves APIs to create/control profiles on the go
-    enable: false
+    enable: true
     ipAddr: "gnbsim"
     port: 8080
   gnbs: # pool of gNodeBs
