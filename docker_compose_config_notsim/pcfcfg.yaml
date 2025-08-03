@@ -30,5 +30,5 @@ info:
   version: 1.0.0
 logger:
   PCF:
-    debugLevel: debug
+    debugLevel: info
     ReportCaller: false

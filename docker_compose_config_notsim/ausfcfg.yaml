@@ -22,5 +22,5 @@ info:
 
 logger:
   AUSF:
-    debugLevel: debug
+    debugLevel: info
     ReportCaller: false

@@ -28,5 +28,5 @@ info:
   version: 1.0.0
 logger:
   UDM:
-    debugLevel: debug
+    debugLevel: info
     ReportCaller: false

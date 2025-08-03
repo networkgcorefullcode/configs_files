@@ -27,5 +27,5 @@ configuration:
 # ReportCaller: enable the caller report or not, value: true or false
 logger:
   NRF:
-    debugLevel: debug
+    debugLevel: info
     ReportCaller: false

@@ -23,5 +23,5 @@ configuration:
 
 logger:
   UDR:
-    debugLevel: debug
+    debugLevel: info
     ReportCaller: false

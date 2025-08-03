@@ -17,4 +17,4 @@ configuration:
 
 logger:
   SCP_Proxy: 
-    debugLevel: "debug"
+    debugLevel: "info"
