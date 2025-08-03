@@ -106,7 +106,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: pdusessest # profile type
       profileName: profile2 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007492 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
@@ -125,7 +125,7 @@ configuration:
       dataPktCount: 5 # Number of UL user data packets to be transmitted. Common for all UEs
     - profileType: anrelease # profile type
       profileName: profile3 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
@@ -143,7 +143,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: uetriggservicereq # profile type
       profileName: profile4 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
@@ -162,7 +162,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: deregister # profile type
       profileName: profile5 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
@@ -180,7 +180,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: nwtriggeruedereg # profile type
       profileName: profile6 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 1 # Number of UEs for for which the profile will be executed
@@ -199,7 +199,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: uereqpdusessrelease # profile type
       profileName: profile7 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 5 # Number of UEs for for which the profile will be executed
@@ -217,7 +217,7 @@ configuration:
         mnc: 93 # Mobile Network Code (2 or 3 digits string, digit: 0~9)
     - profileType: nwreqpdusessrelease # profile type
       profileName: profile8 # uniqely identifies a profile within application
-      enable: true # Set true to execute the profile, false otherwise.
+      enable: false # Set true to execute the profile, false otherwise.
       gnbName: gnb1 # gNB to be used for this profile
       startImsi: 208930100007497 # First IMSI. Subsequent values will be used if ueCount is more than 1
       ueCount: 1 # Number of UEs for for which the profile will be executed
