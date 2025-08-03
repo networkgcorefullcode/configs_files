@@ -16,7 +16,7 @@ configuration:
 
   ngappPort: 38412                      # Puerto UDP/TCP usado por NGAP
   sctpGrpcPort: 50051                   # Puerto gRPC para comunicaciones SCTP
-  enableSctpLb: true                    # Habilitar el balanceador de carga SCTP
+  enableSctpLb: false                    # Habilitar el balanceador de carga SCTP
 
   sbi: # Service-based interface information
     scheme: http # the protocol for sbi (http or https)
