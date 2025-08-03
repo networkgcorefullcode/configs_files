@@ -11,19 +11,19 @@ info:
 
 configuration:
   runConfigProfilesAtStart: true
-  singleInterface: false #default value
+  singleInterface: true #default value
   execInParallel: false #run all profiles in parallel
   httpServer: # Serves APIs to create/control profiles on the go
     enable: false
-    ipAddr: gnbsim
+    ipAddr: "gnbsim"
     port: 8080
   gnbs: # pool of gNodeBs
     gnb1:
-      n2IpAddr: sctplb # gNB N2 interface IP address used to connect to AMF
-      n2Port: 38416 # gNB N2 Port used to connect to AMF
-      n3IpAddr: pause # gNB N3 interface IP address used to connect to UPF. when singleInterface mode is false
-      #n3IpAddr: "POD_IP" # when gnb is deployed in singleInterface mode
-      n3Port: 10514 # gNB N3 Port used to connect to UPF
+      n2IpAddr: gnbsim # gNB N2 interface IP address used to connect to AMF
+      n2Port: 9487 # gNB N2 Port used to connect to AMF
+      #n3IpAddr: gnbsim # gNB N3 interface IP address used to connect to UPF. when singleInterface mode is false
+      n3IpAddr: gnbsim # when gnb is deployed in singleInterface mode
+      n3Port: 2152 # gNB N3 Port used to connect to UPF
       name: gnb1 # gNB name that uniquely identify a gNB within application
       globalRanId:
         plmnId:
