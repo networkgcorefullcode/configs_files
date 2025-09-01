@@ -3,7 +3,7 @@ info:
   description: PCF initial local configuration
 configuration:
   pcfName: PCF
-  nrfUri: http://nrf:29510
+  nrfUri: http://nrf:8000
   sbi:
     scheme: http
     bindingIPv4: "0.0.0.0"

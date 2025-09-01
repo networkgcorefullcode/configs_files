@@ -3,7 +3,7 @@ info:
   description: NSSF initial local configuration
 configuration:
   nssfName: NSSF
-  nrfUri: http://nrf:29510
+  nrfUri: http://nrf:8000
   webuiUri: http://webui:5001
   sbi:
     scheme: http
@@ -20,5 +20,5 @@ configuration:
         sst: 1
         sd: "010203"
       nsiInformationList:
-        - nrfId: http://nrf:29510/nnrf-nfm/v1/nf-instances
+        - nrfId: http://nrf:8000/nnrf-nfm/v1/nf-instances
           nsiId: 22

@@ -15,7 +15,7 @@ configuration:
   ngapIpList:
     - "0.0.0.0"
   amfName: AMF
-  nrfUri: http://nrf:29510
+  nrfUri: http://nrf:8000
   webuiUri: http://webui:5001
   sbi:
     scheme: http
