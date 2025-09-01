@@ -10,6 +10,7 @@ configuration:
   provision-network-slice: true # if enabled, Device Groups & Slices configure by simapp
   sub-provision-endpt:
     addr: webui  # subscriber configuation endpoint.
+    port: 5000
   # sub-proxy-endpt: # used if subscriber proxy is enabled in the ROC.
   #   addr: subscriber-proxy.aether-roc.svc.svc.cluster.local
   #   port: 5000
