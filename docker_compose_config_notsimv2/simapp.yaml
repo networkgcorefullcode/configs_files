@@ -1,12 +1,12 @@
+info:
+  description: SIMAPP initial local configuration
+  version: 1.0.0
+  http-version: 1
+logger:
+  APP:
+    ReportCaller: false
+    debugLevel: info
 configuration:
-  info:
-    description: SIMAPP initial local configuration
-    version: 1.0.0
-    http-version: 1
-  logger:
-    APP:
-      ReportCaller: false
-      debugLevel: info
   provision-network-slice: true # if enabled, Device Groups & Slices configure by simapp
   sub-provision-endpt:
     addr: webui  # subscriber configuation endpoint.
