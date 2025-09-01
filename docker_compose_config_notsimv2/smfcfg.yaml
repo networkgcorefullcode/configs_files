@@ -1,0 +1,55 @@
+info:
+  version: 1.0.0
+  description: SMF initial local configuration
+configuration:
+  smfDBName: sdcore_smf
+  enableDBStore: false
+  enableNrfCaching: true
+  nrfCacheEvictionInterval: 900
+  debugProfilePort: 5001
+  kafkaInfo:
+    enableKafka: false
+    brokerUri: "kafka-headless"
+    brokerPort: 9092
+    topicName: "sdcore-data-source-smf"
+  pfcp:
+    addr: "POD_IP"
+  smfName: SMF
+  nrfUri: http://nrf:29510
+  webuiUri: http://webui:5001
+  sbi:
+    scheme: http
+    bindingIPv4: "0.0.0.0"
+    registerIPv4: smf
+    tls:
+      pem: /var/run/certs/tls.crt
+      key: /var/run/certs/tls.key
+  serviceNameList:
+    - nsmf-pdusession
+    - nsmf-event-exposure
+    
+# the kind of log output
+  # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
+  # ReportCaller: enable the caller report or not, value: true or false
+logger:
+  SMF:
+    debugLevel: info
+    ReportCaller: false
+  NAS:
+    debugLevel: info
+    ReportCaller: false
+  NGAP:
+    debugLevel: info
+    ReportCaller: false
+  Aper:
+    debugLevel: info
+    ReportCaller: false
+  PathUtil:
+    debugLevel: info
+    ReportCaller: false
+  OpenApi:
+    debugLevel: info
+    ReportCaller: false
+  PFCP:
+    debugLevel: info
+    ReportCaller: false

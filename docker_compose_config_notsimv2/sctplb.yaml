@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2022 Open Networking Foundation <info@opennetworking.org>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+info:
+  description: SctpLb initial local configuration
+  version: 1.0.1
+logger:
+  sctpLogs: info          # Logs relacionados con SCTP
+  dispatcherLogs: info    # Logs del dispatcher de mensajes
+  clientdiscLogs: info    # Logs de descubrimiento de clientes/servicios
+  grpcLogs: info          # Logs de comunicaciones gRPC
+  appLogs: info            # Logs generales de la aplicación
+  cfgLogs: info            # Logs de configuración
+  ranLogs: info           # Logs relacionados con RAN (Radio Access Network)
+configuration:
+  ngapIpList:
+  - sctplb
+  ngappPort: 38416
+  sctpGrpcPort: 50051
+  type: "grpc"
+  services:
+    - uri: "amf"

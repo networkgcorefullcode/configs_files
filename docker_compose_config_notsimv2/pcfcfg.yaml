@@ -1,0 +1,36 @@
+info:
+  version: 1.0.0
+  description: PCF initial local configuration
+configuration:
+  pcfName: PCF
+  nrfUri: http://nrf:29510
+  sbi:
+    scheme: http
+    bindingIPv4: "0.0.0.0"
+    registerIPv4: pcf
+    tls:
+      pem: /var/run/certs/tls.crt
+      key: /var/run/certs/tls.key
+  defaultBdtRefId: BdtPolicyId-
+  enableNrfCaching: true
+  nrfCacheEvictionInterval: 900
+  plmnList:
+    - plmnId:
+        mcc: "208"
+        mnc: "93"
+    - plmnId:
+        mcc: "333"
+        mnc: "88"
+  serviceList:
+    - serviceName: npcf-am-policy-control
+    - serviceName: npcf-smpolicycontrol
+      suppFeat: 3fff
+    - serviceName: npcf-bdtpolicycontrol
+    - serviceName: npcf-policyauthorization
+      suppFeat: 3
+    - serviceName: npcf-eventexposure
+    - serviceName: npcf-ue-policy-control
+logger:
+  PCF:
+    debugLevel: info
+    ReportCaller: false

@@ -1,0 +1,18 @@
+info:
+  version: 1.0.0
+  description: UDR initial local configuration
+configuration:
+  nrfUri: http://nrf:29510
+  webuiUri: http://webui:5001
+  sbi:
+    scheme: http
+    bindingIPv4: "0.0.0.0"
+    registerIPv4: udr
+    tls:
+      pem: /var/run/certs/tls.crt
+      key: /var/run/certs/tls.key
+
+logger:
+  UDR:
+    debugLevel: info
+    ReportCaller: false

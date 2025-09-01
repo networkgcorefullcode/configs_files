@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2024 Canonical Ltd.
+
+configuration:
+  groupId: ausfGroup001
+  nrfUri: http://nrf:8000
+  sbi:
+    bindingIPv4: 0.0.0.0
+    port: 29509
+    registerIPv4: ausf
+    scheme: http
+    tls: # the local path of TLS key
+      key: /var/run/certs/ausf.key # AUSF TLS Private key
+      pem: /var/run/certs/ausf.crt # AUSF TLS Certificate
+  serviceNameList:
+    - nausf-auth
+  webuiUri: "http://webui:5001" # URI del WebUI del AMF
+  
+info:
+  description: AUSF initial local configuration
+  version: 1.0.0
+
+logger:
+  AUSF:
+    debugLevel: info
+    ReportCaller: false

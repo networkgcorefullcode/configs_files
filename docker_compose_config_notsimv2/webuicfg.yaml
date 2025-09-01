@@ -1,0 +1,20 @@
+info:
+  version: 1.0.0
+  description: WebUI initial local configuration
+configuration:
+  enableAuthentication: false
+  spec-compliant-sdf: false
+  secure-grpc-server: false  # if 'true', you must set the path to where the credentials (pem and key) are located
+  webui-tls:
+    # pem: "/var/run/certs/tls.crt"
+    # key: "/var/run/certs/tls.key"
+  nfconfig-tls:
+    # pem: "/var/run/certs/tls.crt"
+    # key: "/var/run/certs/tls.key"
+  managedByConfigPod:
+    enabled: false
+  
+logger:
+  WEBUI:
+    debugLevel: info
+    ReportCaller: false

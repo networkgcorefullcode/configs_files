@@ -1,0 +1,97 @@
+info:
+  version: 1.0.0
+  description: AMF initial configuration
+configuration:
+  amfDBName: sdcore_amf
+  enableDBStore: false
+  enableNrfCaching: true
+  nrfCacheEvictionInterval: 900
+  debugProfilePort: 5001
+  kafkaInfo:
+    enableKafka: false
+    brokerUri: "kafka-headless"
+    brokerPort: 9092
+    topicName: "sdcore-data-source-amf"
+  ngapIpList:
+    - "0.0.0.0"
+  amfName: AMF
+  nrfUri: http://nrf:29510
+  webuiUri: http://webui:5001
+  sbi:
+    scheme: http
+    bindingIPv4: "0.0.0.0"
+    registerIPv4: amf
+    tls:
+      pem: /var/run/certs/tls.crt
+      key: /var/run/certs/tls.key
+  serviceNameList:
+    - namf-comm
+    - namf-evts
+    - namf-mt
+    - namf-loc
+    - namf-oam
+  supportDnnList:
+    - internet
+  security:
+    integrityOrder:
+      - NIA1
+      - NIA2
+    cipheringOrder:
+      - NEA0
+  networkName:
+    full: Aether5G
+    short: Aether
+  networkFeatureSupport5GS: # 5gs Network Feature Support IE, refer to TS 24.501
+    enable: true # append this IE in Registration accept or not
+    imsVoPS: 0 # IMS voice over PS session indicator (uinteger, range: 0~1)
+    emc: 0 # Emergency service support indicator for 3GPP access (uinteger, range: 0~3)
+    emf: 0 # Emergency service fallback indicator for 3GPP access (uinteger, range: 0~3)
+    iwkN26: 0 # Interworking without N26 interface indicator (uinteger, range: 0~1)
+    mpsi: 0 # MPS indicator (uinteger, range: 0~1)
+    emcN3: 0 # Emergency service support indicator for Non-3GPP access (uinteger, range: 0~1)
+    mcsi: 0 # MCS indicator (uinteger, range: 0~1)
+  t3502Value: 720  # timer value (seconds) at UE side
+  t3512Value: 3600 # timer value (seconds) at UE side
+  non3gppDeregistrationTimerValue: 3240 # timer value (seconds) at UE side
+  # retransmission timer for paging message
+  t3513:
+    enable: true     # true or false
+    expireTime: 6s   # default is 6 seconds
+    maxRetryTimes: 4 # the max number of retransmission
+  # retransmission timer for NAS Deregistration Request message
+  t3522:
+    enable: true     # true or false
+    expireTime: 6s   # default is 6 seconds
+    maxRetryTimes: 4 # the max number of retransmission
+  # retransmission timer for NAS Registration Accept message
+  t3550:
+    enable: true     # true or false
+    expireTime: 6s   # default is 6 seconds
+    maxRetryTimes: 4 # the max number of retransmission
+  # retransmission timer for NAS Authentication Request/Security Mode Command message
+  t3560:
+    enable: true     # true or false
+    expireTime: 6s   # default is 6 seconds
+    maxRetryTimes: 4 # the max number of retransmission
+  # retransmission timer for NAS Notification message
+  t3565:
+    enable: true     # true or false
+    expireTime: 6s   # default is 6 seconds
+    maxRetryTimes: 4 # the max number of retransmission
+
+# the kind of log output
+  # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
+  # ReportCaller: enable the caller report or not, value: true or false
+logger:
+  AMF:
+    debugLevel: info
+  NAS:
+    debugLevel: info
+  FSM:
+    debugLevel: info
+  NGAP:
+    debugLevel: info
+  Aper:
+    debugLevel: info
+  OpenApi:
+    debugLevel: info
