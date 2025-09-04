@@ -15,11 +15,11 @@ configuration:
     enabled: false
   mongodb:                    # Configuración de la base de datos MongoDB
     name: "webuiDB"              # (string) Nombre de la base de datos principal
-    url: "mongodb://172.0.0.1:27017" # (string) URL de conexión a MongoDB
+    url: "mongodb://localhost:27017,localhost:27018,localhost:27019/?replicaSet=rs0" # (string) URL de conexión a MongoDB
     authKeysDbName: "authdb"   # (string) Nombre de la base de datos de llaves de autenticación
-    authUrl: "mongodb://172.0.0.1:27017" # (string) URL de autenticación
+    authUrl: "mongodb://localhost:27017,localhost:27018,localhost:27019/?replicaSet=rs0" # (string) URL de autenticación
     webuiDbName: "webuiDB"       # (string, opcional) Nombre de la base de datos específica para WebUI
-    webuiDbUrl: "mongodb://172.0.0.1:27017" # (string, opcional) URL específica para la base de datos WebUI
+    webuiDbUrl: "mongodb://localhost:27017,localhost:27018,localhost:27019/?replicaSet=rs0" # (string, opcional) URL específica para la base de datos WebUI
   
 logger:
   WEBUI:
