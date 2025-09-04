@@ -1,0 +1,27 @@
+info:
+  version: 1.0.0
+  description: WebUI initial local configuration
+configuration:
+  enableAuthentication: false
+  spec-compliant-sdf: false
+  secure-grpc-server: false  # if 'true', you must set the path to where the credentials (pem and key) are located
+  webui-tls:
+    # pem: "/var/run/certs/tls.crt"
+    # key: "/var/run/certs/tls.key"
+  nfconfig-tls:
+    # pem: "/var/run/certs/tls.crt"
+    # key: "/var/run/certs/tls.key"
+  managedByConfigPod:
+    enabled: false
+  mongodb:                    # Configuración de la base de datos MongoDB
+    name: "webuiDB"              # (string) Nombre de la base de datos principal
+    url: "mongodb://172.0.0.1:27017" # (string) URL de conexión a MongoDB
+    authKeysDbName: "authdb"   # (string) Nombre de la base de datos de llaves de autenticación
+    authUrl: "mongodb://172.0.0.1:27017" # (string) URL de autenticación
+    webuiDbName: "webuiDB"       # (string, opcional) Nombre de la base de datos específica para WebUI
+    webuiDbUrl: "mongodb://172.0.0.1:27017" # (string, opcional) URL específica para la base de datos WebUI
+  
+logger:
+  WEBUI:
+    debugLevel: info
+    ReportCaller: false
