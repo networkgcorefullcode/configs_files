@@ -14,6 +14,7 @@ configuration:
     topicName: "sdcore-data-source-amf"
   ngapIpList:
     - "amf"
+  ngappPort: 38412
   amfName: AMF
   nrfUri: http://nrf:8000
   webuiUri: http://webui:5001
