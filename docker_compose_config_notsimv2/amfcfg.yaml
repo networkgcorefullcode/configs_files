@@ -13,7 +13,7 @@ configuration:
     brokerPort: 9092
     topicName: "sdcore-data-source-amf"
   ngapIpList:
-    - "0.0.0.0"
+    - "amf"
   amfName: AMF
   nrfUri: http://nrf:8000
   webuiUri: http://webui:5001
