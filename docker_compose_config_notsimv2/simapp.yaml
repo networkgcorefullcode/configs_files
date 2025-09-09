@@ -47,6 +47,7 @@ configuration:
       - "208930100007493"
       - "208930100007494"
       - "208930100007495"
+      - "208930100007587"
     ip-domain-name: "pool1"
     ip-domain-expanded:
       dnn: internet

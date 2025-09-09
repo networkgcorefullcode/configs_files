@@ -14,7 +14,7 @@ configuration:
   managedByConfigPod:
     enabled: false
   mongodb:                    # Configuración de la base de datos MongoDB
-    name: "webuiDB"              # (string) Nombre de la base de datos principal
+    name: "aether"              # (string) Nombre de la base de datos principal
     url: "mongodb://mongodb:27017" # (string) URL de conexión a MongoDB
     authKeysDbName: "authdb"   # (string) Nombre de la base de datos de llaves de autenticación
     authUrl: "mongodb://mongodb:27017" # (string) URL de autenticación

@@ -14,6 +14,8 @@ configuration:
   mongodb:
     name: aether
     url: "mongodb://mongodb:27017"  # URL de conexión con credenciales y host:puerto
+    authKeysDbName: "authdb"
+    authUrl: "mongodb://mongodb:27017"
 
 logger:
   UDR:
